@@ -45,7 +45,7 @@ Write the group members as an **ordered list** (Chapter 5, *Lists*). For each me
 
 The chunk below sets the default options for every other chunk in the document. Add the **chunk option** (Chapter 5, *Code Chunk Arguments*) that runs it without showing either the code or any output in the knitted report.
 
-```{r code-chunk-setup, eval=F}
+```{r code-chunk-setup, include=F}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -58,33 +58,43 @@ Markdown Table - Coding Challenge 1 Data
 ---------------------------------------------------------
 Variable        |  Descirption                  | Units  |
 ----------------|-------------------------------|---------
-Population Type | Is the Pop A or S Type        | NA
+Population Type | Is the Pop A or S Type (count)| NA
 Ovary Width     | The width of the pops ovaries | mm
 Ovary Height    | The height of the pops ovaries| mm
-Flower Number   | The number of flowers.        | NA
+Flower Number   | The number of flowers(count)  | NA
 
 # Import and clean the data
 
 Copy `A1_Data_Excel.csv` from your Coding Challenge 1 project into this project's `data` folder. In the chunk below, import it with `read.csv()`, keep the appropriate rows and columns (as you did in Coding Challenge 1), and add the `ovary_area` column (Chapter 3, *New Columns*). Save the cleaned data as `cc1_data`.
 
 ```{r import-clean}
-# cc1_data <- read.csv("A1_Data_Excel")
+cc1_data=read.csv("A1_Data_Excelcopy.csv")
+cc1_cleandata=cc1_data[0:45, 0:8]
+cc1_cleandata$ovary_area=cc1_cleandata$ovarywidth*cc1_cleandata$ovaryheight
 
+head(cc1_cleandata)
 
+# Should we only included the 5 columns from Challenge 1 or the oeingal with 8 columns
+# Challenge 1 we subsetted to have pop type, ovary width, ovary height, flower number, and ovary area
 ```
 
 Now document the inspection commands you used (`class()`, `dim()`, `str()`, `head()`, `tail()`) in the chunk below. Add the chunk option that **shows this code in the report but does not run it**, so that the reader can see what you checked without pages of output.
 
-```{r inspect}
-# class(cc1_data)
-
+```{r inspect, eval=F}
+class(cc1_cleandata)
+dim(cc1_cleandata)
+str(cc1_cleandata)
+head(cc1_cleandata)
+tail(cc1_cleandata)
 ```
 
 # Equation
 
 Write the formula you used for ovary area as a **full-line equation** in LaTeX (Chapter 5, *Equations*), using `\times` for multiplication. Then, in a sentence of ordinary text, state its units using an **in-line equation** with a superscript.
 
-(equation here)
+$Ovary Area = Ovary Width \times Ovary Length$
+The units for Ovary Area are $mm^2$
+The units for Ovary Width and Ovary Length are both $mm$
 
 # Dynamic table
 
