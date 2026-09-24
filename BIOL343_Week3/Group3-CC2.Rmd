@@ -135,9 +135,9 @@ labs(title = "Ovary Area Between Populations", subtitle = "(Asexual vs. Sexual)"
 
 Embed an image of the study species, *Solanum pimpinellifolium*, with Markdown image syntax (Chapter 5, *Images*). Save the image file in an `images` folder inside your project folder and use a **relative path**, exactly as the chapter does, so that the image is pushed to GitHub with everything else. The text in the square brackets is the caption. Below the image, give the **source** as a Markdown link to the page you took it from.
 
-(image here)
+![Figure1.1 Image of the Solanum Pimpinellifolium species](./Images/Hydroponic_g13.jpg):
 
-Source: 
+Source: #???
 
 # Repository
 
