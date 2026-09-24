@@ -27,28 +27,25 @@ Before you run it: open the project folder for this challenge in Positron (*File
 Replace the single `output: html_document` line in the YAML header above with the multi-line version from Chapter 5 (*YAML Header*) so that the knitted report has a **floating table of contents** and **numbered sections**. Once you do, every `#` heading in this document is numbered automatically — do not type the numbers yourself.
 
 # Group members
-1. Ziadie Diebel, 20463388
-    + #Link to members GitHub
-2. Group Memember 2, Student #
-    + #Link to members GitHub
-3. Group Member 3, Student #
-    + #Link to members GitHub
-4. Group Member 4, Student #
-    + #Link to members GitHub
-
-
 
 Write the group members as an **ordered list** (Chapter 5, *Lists*). For each member give the **name in bold**, then the student number, and then a **sub-item** containing a clickable **link** to that member's GitHub repository, written with Markdown link syntax (Chapter 5, *Links*).
 
-1. **Name** — student number
-    + [BIOL343_CC](https://github.com/your_user_name/BIOL343_CC)
-1. 
+1. **Ziadie Diebel** - 20463388
+    + [Link to Ziadie's GitHub](https://github.com/ziadiediebel-maker/BIOL343_CodingChallenges)
+2. **Group Memember 2** - Student #
+    + [Link to members GitHub]()
+3. **Group Member 3** - Student #
+    + [Link to members GitHub]()
+4. **Group Member 4** - Student #
+    + [Link to members GitHub]()
+5. **Group Member 5** - Student #
+    + [Link to members GitHub]()
 
 # Setup chunk
 
 The chunk below sets the default options for every other chunk in the document. Add the **chunk option** (Chapter 5, *Code Chunk Arguments*) that runs it without showing either the code or any output in the knitted report.
 
-```{r setup}
+```{r code-chunk-setup, eval=F}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -57,13 +54,22 @@ knitr::opts_chunk$set(echo = TRUE)
 Write a **Markdown table** (Chapter 5, *Tables*) with three columns — variable, description, units — and one row for each of these variables from the Coding Challenge 1 dataset: `population_type`, `ovary_width`, `ovary_height`, `flower_number`. Use the *pipes and dashes* format from the chapter, not R code.
 
 (table here)
+Markdown Table - Coding Challenge 1 Data
+---------------------------------------------------------
+Variable        |  Descirption                  | Units  |
+----------------|-------------------------------|---------
+Population Type | Is the Pop A or S Type        | NA
+Ovary Width     | The width of the pops ovaries | mm
+Ovary Height    | The height of the pops ovaries| mm
+Flower Number   | The number of flowers.        | NA
 
 # Import and clean the data
 
 Copy `A1_Data_Excel.csv` from your Coding Challenge 1 project into this project's `data` folder. In the chunk below, import it with `read.csv()`, keep the appropriate rows and columns (as you did in Coding Challenge 1), and add the `ovary_area` column (Chapter 3, *New Columns*). Save the cleaned data as `cc1_data`.
 
 ```{r import-clean}
-# cc1_data <- 
+# cc1_data <- read.csv("A1_Data_Excel")
+
 
 ```
 
