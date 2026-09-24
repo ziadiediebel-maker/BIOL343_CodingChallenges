@@ -76,6 +76,10 @@ head(cc1_cleandata)
 
 # Should we only included the 5 columns from Challenge 1 or the oeingal with 8 columns
 # Challenge 1 we subsetted to have pop type, ovary width, ovary height, flower number, and ovary area
+
+#Import Libraries 
+library(ggplot2)
+library(knitr)
 ```
 
 Now document the inspection commands you used (`class()`, `dim()`, `str()`, `head()`, `tail()`) in the chunk below. Add the chunk option that **shows this code in the report but does not run it**, so that the reader can see what you checked without pages of output.
@@ -103,17 +107,16 @@ The units for Ovary Width and Ovary Length are both $mm$
 ```{r area-means, include=F} 
 #Does include=F make more sense or echo=F? 
 # Look for aggregate in Chapter 3
-area_meanA=mean(cc1_cleandata$populationtype=="A", na.rm = TRUE)
-area_meanA
+area_means=aggregate(ovary_area ~ populationtype, data=cc1_cleandata, FUN=mean, na.rm = TRUE)
+area_means
 
-area_meanS$ovaryarea=mean(cc1_cleandata$popuationtype=="S", na.rm = TRUE)
-area_meanS
 
 ```
 
 **b.** Display `area_means` with `kable()` from the `knitr` package (Chapter 5, *Dynamic Tables*), including a `caption`. This chunk should show the **table but not the code**.
 
-```{r area-table}
+```{r area-table, echo=F}
+knitr:kable(area_means, col.names=c("Population Type", "Mean Ovary Area", caption="Mean Ovary Area across Asexual (A) and Sexual (S) Population Types"))
 
 ```
 
@@ -122,7 +125,10 @@ area_meanS
 Make a histogram of `ovary_area` with `ggplot()` + `geom_histogram()` (Chapter 4), choosing a sensible `binwidth` and using `facet_wrap()` to give each `population_type` its own panel, `labs()` for axis labels with units and a title, and `theme_classic()` (Chapter 7). This chunk should show the **graph but not the code**, and it should not print package start-up messages (see the chunk header used under *Embed Graphs* in Chapter 5).
 
 ```{r area-histogram}
+ggplot(aes(x = ovary_area, fill = populationtype), data=cc1_cleandata) + geom_histogram(alpha = 0.7) + theme_classic() +  
+labs(title = "Ovary Area Between Populations", subtitle = "(Asexual vs. Sexual)", x = "Population Type", y = "Ovary Area (mm²)", fill = "Population")
 
+# facet_wrap() read text on this? 
 ```
 
 # Image
