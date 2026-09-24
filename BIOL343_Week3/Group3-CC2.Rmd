@@ -100,8 +100,14 @@ The units for Ovary Width and Ovary Length are both $mm$
 
 **a.** In the chunk below, calculate the mean `ovary_area` for each `population_type` with `aggregate()` (Chapter 3, *Other Functions*) and save the result as `area_means`. This chunk should run but be **completely hidden** in the report.
 
-```{r area-means}
-# area_means <- 
+```{r area-means, include=F} 
+#Does include=F make more sense or echo=F? 
+# Look for aggregate in Chapter 3
+area_meanA=mean(cc1_cleandata$populationtype=="A", na.rm = TRUE)
+area_meanA
+
+area_meanS$ovaryarea=mean(cc1_cleandata$popuationtype=="S", na.rm = TRUE)
+area_meanS
 
 ```
 

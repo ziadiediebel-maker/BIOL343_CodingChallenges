@@ -20,3 +20,7 @@
 {"chunk":null,"ts":"2026-09-24T17:41:38Z","pid":12407,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
 {"chunk":null,"ts":"2026-09-24T17:43:32Z","pid":12407,"engine":"r","severity":"error","render":false,"text":"## Error: object 'assn1_data' not found"}
 {"chunk":null,"ts":"2026-09-24T17:43:41Z","pid":12407,"engine":"r","severity":"error","render":false,"text":"## Error: object 'cc1_cleandata' not found"}
+{"chunk":null,"ts":"2026-09-24T18:06:04Z","pid":12407,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected '='"}
+{"chunk":null,"ts":"2026-09-24T18:08:50Z","pid":12407,"engine":"r","severity":"warning","render":false,"warning":"## Warning: Coercing LHS to a list"}
+{"chunk":null,"ts":"2026-09-24T18:08:50Z","pid":12407,"engine":"r","severity":"warning","render":false,"warning":"## Warning: Coercing LHS to a list"}
+{"chunk":null,"ts":"2026-09-24T18:09:39Z","pid":12407,"engine":"r","severity":"warning","render":false,"warning":"## Warning: argument is not numeric or logical: returning NA"}
