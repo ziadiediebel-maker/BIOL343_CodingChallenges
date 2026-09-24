@@ -32,13 +32,13 @@ Write the group members as an **ordered list** (Chapter 5, *Lists*). For each me
 
 1. **Ziadie Diebel** - 20463388
     + [Link to Ziadie's GitHub](https://github.com/ziadiediebel-maker/BIOL343_CodingChallenges)
-2. **Group Memember 2** - Student #
+2. **Anna Goldfarb** - Student #
     + [Link to members GitHub]()
-3. **Group Member 3** - Student #
+3. **Ellie Maki** - Student #
     + [Link to members GitHub]()
-4. **Group Member 4** - Student #
+4. **henry Moore** - Student #
     + [Link to members GitHub]()
-5. **Group Member 5** - Student #
+5. **Nathan Rhodes** - Student #
     + [Link to members GitHub]()
 
 # Setup chunk
@@ -116,7 +116,8 @@ area_means
 **b.** Display `area_means` with `kable()` from the `knitr` package (Chapter 5, *Dynamic Tables*), including a `caption`. This chunk should show the **table but not the code**.
 
 ```{r area-table, echo=F}
-knitr:kable(area_means, col.names=c("Population Type", "Mean Ovary Area", caption="Mean Ovary Area across Asexual (A) and Sexual (S) Population Types"))
+#Confirm that the echo=F choice is correct (what did other use?)
+kable(area_means, caption="Mean Ovary Area across Asexual (A) and Sexual (S) Population Types")
 
 ```
 
@@ -125,9 +126,13 @@ knitr:kable(area_means, col.names=c("Population Type", "Mean Ovary Area", captio
 Make a histogram of `ovary_area` with `ggplot()` + `geom_histogram()` (Chapter 4), choosing a sensible `binwidth` and using `facet_wrap()` to give each `population_type` its own panel, `labs()` for axis labels with units and a title, and `theme_classic()` (Chapter 7). This chunk should show the **graph but not the code**, and it should not print package start-up messages (see the chunk header used under *Embed Graphs* in Chapter 5).
 
 ```{r area-histogram}
-ggplot(aes(x = ovary_area, fill = populationtype), data=cc1_cleandata) + geom_histogram(alpha = 0.7) + theme_classic() +  
-labs(title = "Ovary Area Between Populations", subtitle = "(Asexual vs. Sexual)", x = "Population Type", y = "Ovary Area (mm²)", fill = "Population")
+Hist_cc1_cleandata=ggplot(aes(x = ovary_area), data=cc1_cleandata) + geom_histogram(binwidth=0.8) + theme_classic() +  
+labs(title = "Ovary Area Between Populations", subtitle = "(Asexual vs. Sexual)", x = "Population Type", y = "Ovary Area (mm²)") #+ scale_colour_gradient2(high="blue", low="red")
 
+Hist_cc1_cleandata
+
+Hist2_cc1_cleandata=Hist_cc1_cleandata + facet_wrap(vars(populationtype))
+Hist2_cc1_cleandata
 # facet_wrap() read text on this? 
 ```
 
