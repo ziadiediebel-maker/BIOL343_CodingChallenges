@@ -68,7 +68,7 @@ Flower Number   | The number of flowers(count)  | NA
 Copy `A1_Data_Excel.csv` from your Coding Challenge 1 project into this project's `data` folder. In the chunk below, import it with `read.csv()`, keep the appropriate rows and columns (as you did in Coding Challenge 1), and add the `ovary_area` column (Chapter 3, *New Columns*). Save the cleaned data as `cc1_data`.
 
 ```{r import-clean}
-cc1_data=read.csv("A1_Data_Excelcopy")
+cc1_data<-read.csv("./BIOL343_Week3/A1_Data_Excelcopy.csv")
 cc1_cleandata=cc1_data[0:45, 0:8]
 cc1_cleandata$ovary_area=cc1_cleandata$ovarywidth*cc1_cleandata$ovaryheight
 
@@ -138,9 +138,9 @@ Hist_cc1final
 
 Embed an image of the study species, *Solanum pimpinellifolium*, with Markdown image syntax (Chapter 5, *Images*). Save the image file in an `images` folder inside your project folder and use a **relative path**, exactly as the chapter does, so that the image is pushed to GitHub with everything else. The text in the square brackets is the caption. Below the image, give the **source** as a Markdown link to the page you took it from.
 
-![Figure1.1 Image of the Solanum Pimpinellifolium species](./Images/Hydroponic_g13.jpg):
+![Figure1.1 Image of the Solanum Pimpinellifolium species](./Images/Hydroponic_g13.jpg)
 
-Source: [Queens BIOL 343 CC2 Assignment Dropbox]("https://onq.queensu.ca/d2l/lms/dropbox/user/folder_submit_files.d2l?db=492096&grpid=1208698&isprv=0&bp=0&ou=1208667")
+Source: [Queens BIOL 343 CC2 Assignment Dropbox](https://onq.queensu.ca/d2l/lms/dropbox/user/folder_submit_files.d2l?db=492096&grpid=1208698&isprv=0&bp=0&ou=1208667)
 
 # Repository
 
