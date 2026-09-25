@@ -32,13 +32,13 @@ Write the group members as an **ordered list** (Chapter 5, *Lists*). For each me
 
 1. **Ziadie Diebel** - 20463388
     + [Link to Ziadie's GitHub](https://github.com/ziadiediebel-maker/BIOL343_CodingChallenges)
-2. **Anna Goldfarb** - Student #
+2. **Group Memember 2** - Student #
     + [Link to members GitHub]()
-3. **Ellie Maki** - Student #
+3. **Group Memember 3** - Student #
     + [Link to members GitHub]()
-4. **Henry Moore** - Student #
+4. **Group Memember 4** - Student #
     + [Link to members GitHub]()
-5. **Nathan Rhodes** - Student #
+5. **Group Memeber 5** - Student #
     + [Link to members GitHub]()
 
 # Setup chunk
