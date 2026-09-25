@@ -1,4 +1,3 @@
-# BIOL 343 Coding Challenge 2 
-# September 24, 2026
+# BIOL343_CodingChallenges 
 
 Repository of all weekly coding challenges for the BIOL 343 course.
