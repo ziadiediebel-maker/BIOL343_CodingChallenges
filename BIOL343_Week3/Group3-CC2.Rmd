@@ -48,7 +48,6 @@ The chunk below sets the default options for every other chunk in the document. 
 ```{r code-chunk-setup, include=F}
 knitr::opts_chunk$set(echo = TRUE)
 
-#Confirm that include=F is the correct choice? 
 ```
 
 # Data dictionary
@@ -107,8 +106,7 @@ The units for Ovary Width and Ovary Length are both $mm$
 
 area_means=aggregate(ovary_area ~ populationtype, data=cc1_cleandata, FUN=mean, na.rm = TRUE)
 area_means
-me
-#What does FUN=mean represent? 
+
 
 ```
 
@@ -126,14 +124,14 @@ Make a histogram of `ovary_area` with `ggplot()` + `geom_histogram()` (Chapter 4
 
 ```{r area-histogram, echo=F}
 
-Hist_cc1_cleandata=ggplot(aes(x = ovary_area), data=cc1_cleandata) + geom_histogram(binwidth=0.8) + theme_classic() +  labs(title = "Ovary Area Between Populations", subtitle = "(Asexual vs. Sexual)", x = expression("Ovary Area (" * mm^2 * ")"), y="Count")
+Hist_cc1_cleandata=ggplot(aes(x = ovary_area), data=cc1_cleandata) + geom_histogram(binwidth=0.8) + theme_classic() + labs(title = "Ovary Area Between Populations", subtitle = "(Asexual vs. Sexual)", x = "Ovary Area", y="count")
 
+#expression (" * mm^2 * ")")
 #Hist_cc1_cleandata
 
-Hist2_cc1_cleandata=Hist_cc1_cleandata + facet_wrap(vars(populationtype)) 
-Hist2_cc1_cleandata
+Hist_cc1final=Hist_cc1_cleandata + facet_wrap(vars(populationtype)) 
+Hist_cc1final
 
-# Can scale_colour_gradient be used to seperate the 2 pop types into 2 diff. colours? 
 ```
 
 # Image
