@@ -107,7 +107,7 @@ The units for Ovary Width and Ovary Length are both $mm$
 
 area_means=aggregate(ovary_area ~ populationtype, data=cc1_cleandata, FUN=mean, na.rm = TRUE)
 area_means
-
+me
 #What does FUN=mean represent? 
 
 ```
@@ -124,13 +124,13 @@ kable(area_means, caption="Mean Ovary Area across Asexual (A) and Sexual (S) Pop
 
 Make a histogram of `ovary_area` with `ggplot()` + `geom_histogram()` (Chapter 4), choosing a sensible `binwidth` and using `facet_wrap()` to give each `population_type` its own panel, `labs()` for axis labels with units and a title, and `theme_classic()` (Chapter 7). This chunk should show the **graph but not the code**, and it should not print package start-up messages (see the chunk header used under *Embed Graphs* in Chapter 5).
 
-```{r area-histogram}
-Hist_cc1_cleandata=ggplot(aes(x = ovary_area), data=cc1_cleandata) + geom_histogram(binwidth=0.8) + theme_classic() +  
-labs(title = "Ovary Area Between Populations", subtitle = "(Asexual vs. Sexual)", x = "Population Type", y = "Ovary Area (mm²)")
+```{r area-histogram, echo=F}
 
-Hist_cc1_cleandata
+Hist_cc1_cleandata=ggplot(aes(x = ovary_area), data=cc1_cleandata) + geom_histogram(binwidth=0.8) + theme_classic() +  labs(title = "Ovary Area Between Populations", subtitle = "(Asexual vs. Sexual)", x = expression("Ovary Area (" * mm^2 * ")"), y="Count")
 
-Hist2_cc1_cleandata=Hist_cc1_cleandata + facet_wrap(vars(populationtype))
+#Hist_cc1_cleandata
+
+Hist2_cc1_cleandata=Hist_cc1_cleandata + facet_wrap(vars(populationtype)) 
 Hist2_cc1_cleandata
 
 # Can scale_colour_gradient be used to seperate the 2 pop types into 2 diff. colours? 
@@ -142,8 +142,7 @@ Embed an image of the study species, *Solanum pimpinellifolium*, with Markdown i
 
 ![Figure1.1 Image of the Solanum Pimpinellifolium species](./Images/Hydroponic_g13.jpg):
 
-#Is the listing of the source correct?
-Source: source("https://onq.queensu.ca/d2l/lms/dropbox/user/folder_submit_files.d2l?db=492096&grpid=1208698&isprv=0&bp=0&ou=1208667")
+Source: [Queens BIOL 343 CC2 Assignment Dropbox]("https://onq.queensu.ca/d2l/lms/dropbox/user/folder_submit_files.d2l?db=492096&grpid=1208698&isprv=0&bp=0&ou=1208667")
 
 # Repository
 
