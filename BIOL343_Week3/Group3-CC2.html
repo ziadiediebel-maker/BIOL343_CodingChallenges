@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ziadie Diebel">
+<meta name="dcterms.date" content="2026-09-24">
+
+<title>BIOL343 Coding Challenge 2</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Group3-CC2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Group3-CC2_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Group3-CC2_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Group3-CC2_files/libs/quarto-html/popper.min.js"></script>
+<script src="Group3-CC2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Group3-CC2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Group3-CC2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Group3-CC2_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Group3-CC2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Group3-CC2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Group3-CC2_files/libs/bootstrap/bootstrap-917079515d91bccb85b543faf8aa8bb6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">BIOL343 Coding Challenge 2</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ziadie Diebel </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 24, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="do-this-first" class="level1 unnumbered">
+<h1 class="unnumbered">DO THIS FIRST</h1>
+<p>Copy and paste this into your R Console to start positpal, but replace <code>FILENAME.Rmd</code> with the name you are going to use for the .R or .Rmd file you are going to upload (for this challenge, rename the template first, e.g.&nbsp;<code>Group_#_CC2.Rmd</code>, and use that exact name). <strong>Do not include it as a code chunk.</strong></p>
+<pre><code>install.packages("remotes")
+remotes::install_url("https://quantitative.bio/downloads/positpal.tar.gz", upgrade = "never")
+positpal::start("Group3-CC2.Rmd")</code></pre>
+<p>Before you run it: open the project folder for this challenge in Positron (<em>File → Open Folder…</em>) so that it is your working directory, save this file in that folder under the name you will upload, and check that autosave is on (<em>File → Auto Save</em>). The first time you use positpal on a computer, <code>start()</code> will ask you to run <code>positpal::accept_eula()</code> once; do that, then run the <code>start()</code> line again. After a few minutes of work, check in the Explorer pane that the <code>.capture/snaps</code> folder inside your project is filling up with files. If it is not, or if <code>start()</code> refuses to record, run <code>positpal::doctor("FILENAME.Rmd")</code> and bring the output to tutorial or office hours. Run the <code>start()</code> line again at the start of every session you spend on this file.</p>
+</section>
+<section id="yaml-header" class="level1">
+<h1>YAML header</h1>
+<p>Replace the single <code>output: html_document</code> line in the YAML header above with the multi-line version from Chapter 5 (<em>YAML Header</em>) so that the knitted report has a <strong>floating table of contents</strong> and <strong>numbered sections</strong>. Once you do, every <code>#</code> heading in this document is numbered automatically — do not type the numbers yourself.</p>
+</section>
+<section id="group-members" class="level1">
+<h1>Group members</h1>
+<p>Write the group members as an <strong>ordered list</strong> (Chapter 5, <em>Lists</em>). For each member give the <strong>name in bold</strong>, then the student number, and then a <strong>sub-item</strong> containing a clickable <strong>link</strong> to that member’s GitHub repository, written with Markdown link syntax (Chapter 5, <em>Links</em>).</p>
+<ol type="1">
+<li><strong>Ziadie Diebel</strong> - 20463388
+<ul>
+<li><a href="https://github.com/ziadiediebel-maker/BIOL343_CodingChallenges">Link to Ziadie’s GitHub</a></li>
+</ul></li>
+<li><strong>Anna Goldfarb</strong> - Student #
+<ul>
+<li><a href="">Link to members GitHub</a></li>
+</ul></li>
+<li><strong>Ellie Maki</strong> - Student #
+<ul>
+<li><a href="">Link to members GitHub</a></li>
+</ul></li>
+<li><strong>Henry Moore</strong> - Student #
+<ul>
+<li><a href="">Link to members GitHub</a></li>
+</ul></li>
+<li><strong>Nathan Rhodes</strong> - Student #
+<ul>
+<li><a href="">Link to members GitHub</a></li>
+</ul></li>
+</ol>
+</section>
+<section id="setup-chunk" class="level1">
+<h1>Setup chunk</h1>
+<p>The chunk below sets the default options for every other chunk in the document. Add the <strong>chunk option</strong> (Chapter 5, <em>Code Chunk Arguments</em>) that runs it without showing either the code or any output in the knitted report.</p>
+</section>
+<section id="data-dictionary" class="level1">
+<h1>Data dictionary</h1>
+<p>Write a <strong>Markdown table</strong> (Chapter 5, <em>Tables</em>) with three columns — variable, description, units — and one row for each of these variables from the Coding Challenge 1 dataset: <code>population_type</code>, <code>ovary_width</code>, <code>ovary_height</code>, <code>flower_number</code>. Use the <em>pipes and dashes</em> format from the chapter, not R code.</p>
+<section id="markdown-table---coding-challenge-1-data" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-table---coding-challenge-1-data">Markdown Table - Coding Challenge 1 Data</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Population Type</td>
+<td>Is the Pop A or S Type (count)</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>Ovary Width</td>
+<td>The width of the pops ovaries</td>
+<td>mm</td>
+</tr>
+<tr class="odd">
+<td>Ovary Height</td>
+<td>The height of the pops ovaries</td>
+<td>mm</td>
+</tr>
+<tr class="even">
+<td>Flower Number</td>
+<td>The number of flowers(count)</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="import-and-clean-the-data" class="level1">
+<h1>Import and clean the data</h1>
+<p>Copy <code>A1_Data_Excel.csv</code> from your Coding Challenge 1 project into this project’s <code>data</code> folder. In the chunk below, import it with <code>read.csv()</code>, keep the appropriate rows and columns (as you did in Coding Challenge 1), and add the <code>ovary_area</code> column (Chapter 3, <em>New Columns</em>). Save the cleaned data as <code>cc1_data</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cc1_data<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"./A1_Data_Excelcopy.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>cc1_cleandata<span class="ot">=</span>cc1_data[<span class="dv">0</span><span class="sc">:</span><span class="dv">45</span>, <span class="dv">0</span><span class="sc">:</span><span class="dv">8</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>cc1_cleandata<span class="sc">$</span>ovary_area<span class="ot">=</span>cc1_cleandata<span class="sc">$</span>ovarywidth<span class="sc">*</span>cc1_cleandata<span class="sc">$</span>ovaryheight</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cc1_cleandata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  populationtype populationname latitude longitude ovarywidth ovaryheight
+1              A          MI M2   43.264   -84.884       3.62        3.48
+2              A          MI M3   45.615   -84.689       3.61        3.59
+3              A          MI M5   42.418   -84.013       2.98        2.68
+4              A          MI M7   45.623   -84.705       3.48        4.08
+5              A          MI M8   43.350   -85.935       3.43        2.94
+6              A          MI M9   45.600   -84.709       3.87        3.11
+  averageaugusttemperature flowernumber ovary_area
+1                     21.0           NA    12.5976
+2                     18.3           NA    12.9599
+3                     20.8           NA     7.9864
+4                     18.2           NA    14.1984
+5                     20.1           NA    10.0842
+6                     18.2           NA    12.0357</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Import Libraries </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now document the inspection commands you used (<code>class()</code>, <code>dim()</code>, <code>str()</code>, <code>head()</code>, <code>tail()</code>) in the chunk below. Add the chunk option that <strong>shows this code in the report but does not run it</strong>, so that the reader can see what you checked without pages of output.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(cc1_cleandata)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cc1_cleandata)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(cc1_cleandata)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cc1_cleandata)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(cc1_cleandata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="equation" class="level1">
+<h1>Equation</h1>
+<p>Write the formula you used for ovary area as a <strong>full-line equation</strong> in LaTeX (Chapter 5, <em>Equations</em>), using <code>\times</code> for multiplication. Then, in a sentence of ordinary text, state its units using an <strong>in-line equation</strong> with a superscript.</p>
+<p><span class="math inline">\(Ovary Area = Ovary Width \times Ovary Length\)</span> The units for Ovary Area are <span class="math inline">\(mm^2\)</span> The units for Ovary Width and Ovary Length are both <span class="math inline">\(mm\)</span></p>
+</section>
+<section id="dynamic-table" class="level1">
+<h1>Dynamic table</h1>
+<p><strong>a.</strong> In the chunk below, calculate the mean <code>ovary_area</code> for each <code>population_type</code> with <code>aggregate()</code> (Chapter 3, <em>Other Functions</em>) and save the result as <code>area_means</code>. This chunk should run but be <strong>completely hidden</strong> in the report.</p>
+<p><strong>b.</strong> Display <code>area_means</code> with <code>kable()</code> from the <code>knitr</code> package (Chapter 5, <em>Dynamic Tables</em>), including a <code>caption</code>. This chunk should show the <strong>table but not the code</strong>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Mean Ovary Area across Asexual (A) and Sexual (S) Population Types</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">populationtype</th>
+<th style="text-align: right;">ovary_area</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.58363</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S</td>
+<td style="text-align: right;">10.27290</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="embedded-graph" class="level1">
+<h1>Embedded graph</h1>
+<p>Make a histogram of <code>ovary_area</code> with <code>ggplot()</code> + <code>geom_histogram()</code> (Chapter 4), choosing a sensible <code>binwidth</code> and using <code>facet_wrap()</code> to give each <code>population_type</code> its own panel, <code>labs()</code> for axis labels with units and a title, and <code>theme_classic()</code> (Chapter 7). This chunk should show the <strong>graph but not the code</strong>, and it should not print package start-up messages (see the chunk header used under <em>Embed Graphs</em> in Chapter 5).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Group3-CC2_files/figure-html/area-histogram-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="image" class="level1">
+<h1>Image</h1>
+<p>Embed an image of the study species, <em>Solanum pimpinellifolium</em>, with Markdown image syntax (Chapter 5, <em>Images</em>). Save the image file in an <code>images</code> folder inside your project folder and use a <strong>relative path</strong>, exactly as the chapter does, so that the image is pushed to GitHub with everything else. The text in the square brackets is the caption. Below the image, give the <strong>source</strong> as a Markdown link to the page you took it from.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./Images/Hydroponic_g13.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure1.1 Image of the Solanum Pimpinellifolium species</figcaption>
+</figure>
+</div>
+<p>Source: <a href="https://onq.queensu.ca/d2l/lms/dropbox/user/folder_submit_files.d2l?db=492096&amp;grpid=1208698&amp;isprv=0&amp;bp=0&amp;ou=1208667">Queens BIOL 343 CC2 Assignment Dropbox</a></p>
+</section>
+<section id="repository" class="level1">
+<h1>Repository</h1>
+<p>Your project folder is a GitHub repository (Chapter 6). Before you submit:</p>
+<ol type="1">
+<li>Edit the <code>README.md</code> in your repository (Chapter 6, <em>README.md</em>): add a <strong>header</strong> with the repository name and one sentence saying what the repository contains.</li>
+<li>Make sure the repository contains the <code>.Rmd</code>, <code>data/A1_Data_Excel.csv</code>, <code>images/</code> with your photo, and the knitted <code>.html</code>, and that everything is <strong>committed and pushed</strong>.</li>
+<li>Paste the <strong>SHA</strong> of your final commit (Chapter 6, <em>Timeline</em>; the 7-character code shown beside each commit on GitHub) below, formatted as in-line code with back-ticks.</li>
+</ol>
+<p>Final commit SHA:</p>
+</section>
+<section id="do-this-last" class="level1 unnumbered">
+<h1 class="unnumbered">DO THIS LAST</h1>
+<p>When your document is finished, knitted and pushed to GitHub, copy and paste this into the R Console to stop positpal and create your coding log. <strong>Do not include it as a code chunk.</strong></p>
+<pre><code>positpal::stop_capture()
+positpal::export_capture()</code></pre>
+<p><code>export_capture()</code> prints the name and location of the <code>my-capture-YYYYMMDD-HHMMSS.zip</code> it creates beside this file. <strong>Each group member</strong> uploads their own <code>.zip</code> to the <strong>“CC2 — Coding Log (individual)”</strong> dropbox on OnQ; the group’s <code>.Rmd</code> and knitted <code>.html</code> go to your section’s <strong>TUT02-CC2</strong> or <strong>TUT03-CC2</strong> folder. Submissions without the log are incomplete. If <code>export_capture()</code> fails, zip the <code>.capture</code> folder yourself and upload that instead. Do not commit the <code>.capture</code> folder or the <code>.zip</code> to GitHub (add a <code>.capture/</code> line to your repository’s <code>.gitignore</code>).</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

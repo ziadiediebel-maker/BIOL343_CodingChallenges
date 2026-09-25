@@ -3,11 +3,10 @@ title: "BIOL343 Coding Challenge 2"
 author: "Ziadie Diebel"
 date: "September 24, 2026"
 output: 
-    html_document: # Add options for html output
-    toc: true # Add table of contents (TOC)
-    number_sections: true # Add section numbers
-    toc_float: # have TOC floating at the side
-        collapsed: false # Expand subsections
+    html_document:
+        toc: true # Add table of contents (TOC)
+        number_sections: true # Add section numbers
+        toc_float: true # have TOC floating at the side
 ---
 
 # DO THIS FIRST {-}
