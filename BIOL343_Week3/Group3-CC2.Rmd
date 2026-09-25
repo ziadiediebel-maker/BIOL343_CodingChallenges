@@ -68,7 +68,7 @@ Flower Number   | The number of flowers(count)  | NA
 Copy `A1_Data_Excel.csv` from your Coding Challenge 1 project into this project's `data` folder. In the chunk below, import it with `read.csv()`, keep the appropriate rows and columns (as you did in Coding Challenge 1), and add the `ovary_area` column (Chapter 3, *New Columns*). Save the cleaned data as `cc1_data`.
 
 ```{r import-clean}
-cc1_data=read.csv("A1_Data_Excelcopy.csv")
+cc1_data=read.csv("A1_Data_Excelcopy")
 cc1_cleandata=cc1_data[0:45, 0:8]
 cc1_cleandata$ovary_area=cc1_cleandata$ovarywidth*cc1_cleandata$ovaryheight
 
