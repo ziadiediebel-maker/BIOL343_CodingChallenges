@@ -312,34 +312,25 @@ Each `ID` was sampled once in each year. Starting from `all_data`, `select()` on
 
 ```{r pivot-wider}
 
-# Create wide_conc dataset
 wide_conc= all_data |> 
     select(ID, Year, Conc) |> 
     pivot_wider(
-        names_from = Year,
+        names_from = Year
         values_from = Conc
     )
 
-# Extract column names dynamically (assumes 2 distinct years)
 years = sort(unique(all_data$Year))
 yr1=as.character(years[1])
 yr2=as.character(years[2])
 
-# Add Change column (Year 2 minus Year 1)
 wide_conc = wide_conc |> 
-    mutate(Change=.data[[yr2]]-.data[[yr1]])
-
-# Count IDs with an increase (Change > 0)
-sum(wide_conc$Change >0, na.rm=TRUE)
-
-# Count IDs with NA for Change
-sum(is.na(wide_conc$Change))
+    
 
 ```
 
 **Question 5:** How many IDs have a higher concentration in the second year than in the first, and how many have `NA` for the change? Why are there NAs?
 
-**Answer:** 19 IDs have a higher concentration in the seconf year than in the first. 6 IDs have NA for the change column. They are likely NAs because  calculating the change requires a concentration value for both years for a given ID. If a cell is missing a value for one of the years or both subtracting the one year from the other will lead to the resulting NAs.
+**Answer:**
 
 # Part 5 — Test the hypothesis visually
 
@@ -348,44 +339,12 @@ sum(is.na(wide_conc$Change))
 Use `ggplot()` to plot `PC1` on the x-axis and `PC2` on the y-axis for **one** of the two measurement sets, with `colour = Conc` so that concentration is shown by colour, and `facet_wrap()` by `Year`. Include `theme_classic()`, axis labels and a title (Chapter 4 and Chapter 7). Repeat for the other measurement set if it helps you answer Question 6. A few points will be **grey**: those are samples with no concentration value (`Conc` is `NA` because they were not in `Dataset1.csv`), so no colour can be assigned. Ignore them when you answer Question 6, or drop them first with `filter(!is.na(Conc))`.
 
 ```{r pc-scatter}
-# Filter out NAs and plot PC1 vs PC2 faceted by Year for the invert measurements.
-all_data |> 
-    filter(!is.na(Conc)) |> 
-    ggplot(aes(x=invert_PC1, y=invert_PC2, colour=Conc)) + 
-    geom_point(size = 2) +
-    facet_wrap(~Year) + 
-    scale_colour_viridis_c() + 
-    labs(
-        title = "Invertebrate PC1 vs PC2 by Year", 
-        x = "Invertebrate PC1", 
-        y = "Invertebrate PC2", 
-        colour = "Concentration"
-    ) + 
-    theme_classic()
-
-# Repeat for the chemical measurements. 
-all_data |> 
-    filter(!is.na(Conc)) |> 
-    ggplot(aes(x = chem_PC1, y=chem_PC2, colour=Conc)) + 
-    geom_point(size=2) + 
-    facet_wrap(~ Year) +
-    scale_colour_viridis_c() + 
-    labs(
-        title = "Chemical PC1 vs PC2 by Year", 
-        x = "Chemical PC1", 
-        y = "Chemical PC2",
-        colour = "Concentration"
-    ) + 
-    theme_classic()
 
 ```
 
 **Question 6:** What do the data say about the hypothesis in your scenario (patients with similar viral loads have similar gut microbes and urine metabolites, or lakes with similar arsenic levels have similar invertebrate communities and water chemistry)? Answer in a short paragraph from visual inspection of your figures. For now, assume that any strong pattern is statistically robust; later we will learn to test this with models.
 
-**Answer:** Looking at the figures created it appears that the data does not support the hypothesis.
-If lakes with similar arsenic levels had similar chemical/ biological communities, we would expect to see distinct colour clustering or a smooth gradient across the PC space (e.g., higher concentration points grouping together on one side). 
-
-Instead, the points representing different concentration values (colours ranging from yellow to dark purple) are throughly mixed and randomly scattered throughout both the 2021 and 2022 panels. This indicates that chemical composition across PC1 and PC2 varies independetly of arsenic concentration. 
+**Answer:**
 
 **Question 7:** Read the scenario you did not choose. What, if anything, would you have done differently in the code? What does this tell you about coding as a transferable skill?
 
