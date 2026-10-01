@@ -233,16 +233,9 @@ head(all_data)
 Use `group_by()` and `summarise()` (Chapter 10, *summarise() + group_by()*) to calculate the mean and standard deviation of `Conc` for each `Year`. Remember `na.rm = TRUE` (Chapter 10, *NA and na.rm()*). Save the result as `year_summary` and print it.
 
 ```{r year-summary}
-head(all_data)
-year_summary = all_data|> 
-    group_by(Year)
-    summarise(
-        mean_conc=mean(Conc, na.rm=TRUE), 
-        sd_conc=sd(Conc, na.rm=TRUE)
-    )
 
-# Print out the results
-year_summary
+year_summary = year
+
 ```
 
 **Question 4:** Does concentration differ between the two years? Answer in one or two sentences from the table.

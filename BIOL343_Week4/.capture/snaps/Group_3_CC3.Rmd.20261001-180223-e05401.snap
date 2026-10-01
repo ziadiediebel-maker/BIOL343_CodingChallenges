@@ -233,7 +233,7 @@ head(all_data)
 Use `group_by()` and `summarise()` (Chapter 10, *summarise() + group_by()*) to calculate the mean and standard deviation of `Conc` for each `Year`. Remember `na.rm = TRUE` (Chapter 10, *NA and na.rm()*). Save the result as `year_summary` and print it.
 
 ```{r year-summary}
-head(all_data)
+
 year_summary = all_data|> 
     group_by(Year)
     summarise(

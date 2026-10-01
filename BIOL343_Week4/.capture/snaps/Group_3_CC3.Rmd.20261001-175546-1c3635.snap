@@ -95,23 +95,20 @@ str(data3)
 The columns from Question 1 contain words where numbers are expected. Use `mutate()` (Chapter 10, *mutate() Columns*) with `as.numeric()` to convert them; R replaces anything it cannot read as a number with `NA` (the warning `NAs introduced by coercion` is expected here). Then count the missing values in each converted column with `sum(is.na())` (Chapter 10, *is.na()*).
 
 ```{r fix-missing}
-# Change back to PC1 instead of blank_PC1, etc.
+# NEED TO REVIST - still showing as Charcters when I head(all_data)???
 # Converting data2 from chr to num
 data2= data2 |> 
     mutate(
-        invert_PC1=as.numeric(invert_PC1), 
-        invert_PC2=as.numeric(invert_PC2)
-        )
+        PC1=as.numeric(PC1), 
+    PC2=as.numeric(PC2))
 
 #str(data2$PC1) Used to test the output is now numerical
 #unique(data2$PC1)
 
 # Converting data3 from chr to num
 data3=data3 |> 
-    mutate(
-        chem_PC1=as.numeric(chem_PC1), 
-        chem_PC2=as.numeric(chem_PC2)
-        )
+    mutate(PC1=as.numeric(PC1), 
+    PC2=as.numeric(PC2))
 
 #str(data2$PC1) Used to test the output it now numerical
 #unique(data2$PC1) 
@@ -121,6 +118,7 @@ sum(is.na(data2$PC1)) # Sums how many NAs the data2 csv has for PC1
 sum(is.na(data2$PC2)) # Sums how many NAs the data2 csv has for PC2
 sum(is.na(data3$PC1)) # Sums how many NAs the data3 csv has for PC1
 sum(is.na(data3$PC2)) # Sums how many NAs the data3 csv has for PC2
+
 
 ```
 
@@ -233,16 +231,9 @@ head(all_data)
 Use `group_by()` and `summarise()` (Chapter 10, *summarise() + group_by()*) to calculate the mean and standard deviation of `Conc` for each `Year`. Remember `na.rm = TRUE` (Chapter 10, *NA and na.rm()*). Save the result as `year_summary` and print it.
 
 ```{r year-summary}
-head(all_data)
-year_summary = all_data|> 
-    group_by(Year)
-    summarise(
-        mean_conc=mean(Conc, na.rm=TRUE), 
-        sd_conc=sd(Conc, na.rm=TRUE)
-    )
 
-# Print out the results
-year_summary
+# year_summary <-
+
 ```
 
 **Question 4:** Does concentration differ between the two years? Answer in one or two sentences from the table.
