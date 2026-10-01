@@ -147,15 +147,14 @@ Check `class()` of the `Date` column in each of the three objects. If any of the
 ```{r fix-dates}
 # Checking date for data1
 class(data1$Date)
-head(data1$Date) # ensuring the format ymd is the same for all data sets
+head(data1$Date)
 
 # Checking date for data2
 class(data2$Date)
-head(data2$Date) # ensuring the format ymd is the same for all data sets
+head(data2)
 
 # Checking date for data3
 class(data3$Date)
-head(data2$Date) # ensuring the format ymd is the same for all data sets
 
 # All appear to be be classified as Date and none as Characters, no conversion necessary
 
