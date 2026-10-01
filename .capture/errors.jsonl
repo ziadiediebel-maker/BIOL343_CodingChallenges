@@ -1,0 +1,6 @@
+{"chunk":null,"ts":"2026-09-25T20:12:41Z","pid":34393,"engine":"r","severity":"warning","render":false,"warning":"## Warning: cannot open file 'A1_Data_Excelcopy.csv': No such file or directory"}
+{"chunk":null,"ts":"2026-09-25T20:12:41Z","pid":34393,"engine":"r","severity":"error","render":false,"text":"## Error: cannot open the connection"}
+{"chunk":null,"ts":"2026-09-25T20:12:55Z","pid":34393,"engine":"r","severity":"warning","render":false,"warning":"## Warning: cannot open file './BIOL343/A1_Data_Excelcopy.csv': No such file or directory"}
+{"chunk":null,"ts":"2026-09-25T20:12:55Z","pid":34393,"engine":"r","severity":"error","render":false,"text":"## Error: cannot open the connection"}
+{"chunk":null,"ts":"2026-09-25T20:13:45Z","pid":34393,"engine":"r","severity":"warning","render":false,"warning":"## Warning: cannot open file './BIOL_343/A1_Data_Excelcopy.csv': No such file or directory"}
+{"chunk":null,"ts":"2026-09-25T20:13:45Z","pid":34393,"engine":"r","severity":"error","render":false,"text":"## Error: cannot open the connection"}
