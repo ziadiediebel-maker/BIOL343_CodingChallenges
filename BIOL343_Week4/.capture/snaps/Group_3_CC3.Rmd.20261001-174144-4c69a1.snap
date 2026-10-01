@@ -196,16 +196,13 @@ nrow(left_join(data1, data2, by=c("ID", "Date"))) # Output: 794
 nrow(right_join(data1, data2, by=c("ID", "Date"))) # Output: 788
 
 # full
-nrow(full_join(data1, data2, by=c("ID", "Date"))) # Output: 800
+nrow(full_join(data1, data2, by=c("ID", "Date"))) # Output
 
 ```
 
 **Question 3:** The four numbers differ. Explain which rows each verb keeps, and what that tells you about samples that are in one file but not the other.
 
-**Answer:** inner_join() outputs 782 meaning it only keeps the 782 rows in both files and doesn't include rows found only data1 or only in data2. 
-left_join() outputs 794 meaning it keeps only all the 794 rows from data1. 
-right_join() outputs 788 meaning it keeps only all the 788 rows from data2.
-full_join() outputs 800 the highest number from all thr ouputs as this function keeps everything from both data1 and data2 files. 
+**Answer:**
 
 # Part 3 — Dates, summaries and ordering
 
