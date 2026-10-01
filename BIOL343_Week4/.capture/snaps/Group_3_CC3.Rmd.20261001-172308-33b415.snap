@@ -152,7 +152,7 @@ class(data1$Date)
 class(data2$Date)
 
 # Checking date for data3
-class(data3$Date)
+class(data3$)
 
 ```
 

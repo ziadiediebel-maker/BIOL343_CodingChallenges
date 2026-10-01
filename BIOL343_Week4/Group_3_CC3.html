@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Group 3 - Ziadie Diebel (20463388)">
+<meta name="dcterms.date" content="2026-10-01">
+
+<title>BIOL343 Coding Challenge 3</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Group_3_CC3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Group_3_CC3_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Group_3_CC3_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Group_3_CC3_files/libs/quarto-html/popper.min.js"></script>
+<script src="Group_3_CC3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Group_3_CC3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Group_3_CC3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Group_3_CC3_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Group_3_CC3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Group_3_CC3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Group_3_CC3_files/libs/bootstrap/bootstrap-215b371544c282197b31c8aa00ce3677.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">BIOL343 Coding Challenge 3</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Group 3 - Ziadie Diebel (20463388) </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 1, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="biol343-coding-challenge-3" class="level1">
+<h1>BIOL343 Coding Challenge 3</h1>
+<section id="group-members" class="level2">
+<h2 class="anchored" data-anchor-id="group-members">Group Members</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Name - Queen's Student Number</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Ziadie Diebel - 20463388</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Name - Queen's Student Number</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Name - Queen's Student Number</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Name - Queen's Student Number</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Name - Queen's Student Number</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Scenario chosen</strong> (hospital or lakes; see the instructions):</p>
+</section>
+</section>
+<section id="do-this-first" class="level1 unnumbered">
+<h1 class="unnumbered">DO THIS FIRST</h1>
+<p>Copy and paste this into your R Console to start positpal, but replace <code>FILENAME.Rmd</code> with the name you are going to use for the .R or .Rmd file you are going to upload (rename the template first, e.g.&nbsp;<code>Group_#_CC3.Rmd</code>, and use that exact name). <strong>Do not include it as a code chunk.</strong></p>
+<pre><code>install.packages("remotes")
+remotes::install_url("https://quantitative.bio/downloads/positpal.tar.gz", upgrade = "never")
+positpal::start("Group_3_CC3.Rmd")</code></pre>
+<p>Before you run it: open the project folder for this challenge in Positron (<em>File → Open Folder…</em>) so that it is your working directory, save this file in that folder under the name you will upload, and check that autosave is on (<em>File → Auto Save</em>). The first time you use positpal on a computer, <code>start()</code> will ask you to run <code>positpal::accept_eula()</code> once; do that, then run the <code>start()</code> line again. After a few minutes of work, check in the Explorer pane that the <code>.capture/snaps</code> folder inside your project is filling up with files. If it is not, or if <code>start()</code> refuses to record, run <code>positpal::doctor("FILENAME.Rmd")</code> and bring the output to tutorial or office hours. Run the <code>start()</code> line again at the start of every session you spend on this file.</p>
+</section>
+<section id="part-1-import-and-inspect-three-related-files" class="level1">
+<h1>Part 1 — Import and inspect three related files</h1>
+<p>The three files are in the <code>data</code> folder: <code>Dataset1.csv</code>, <code>Dataset2.csv</code>, <code>Dataset3.csv</code>. Each row is one sample, identified by <code>ID</code> and <code>Date</code>: every patient (lake) was sampled once in 2021 and once in 2022, so the same <code>ID</code> appears twice in each file with different dates. <strong>Do not edit the files by hand</strong>; every correction happens in R.</p>
+<section id="load-packages" class="level2">
+<h2 class="anchored" data-anchor-id="load-packages">1. Load packages</h2>
+<p>Load the packages you will use (Chapter 10, <em>Setup</em>): <code>dplyr</code>, <code>tidyr</code>, <code>lubridate</code>, <code>readr</code> and <code>ggplot2</code> (or <code>tidyverse</code>, which loads all of them).</p>
+</section>
+<section id="import-the-three-files" class="level2">
+<h2 class="anchored" data-anchor-id="import-the-three-files">2. Import the three files</h2>
+<p>Import each file and save them as <code>data1</code>, <code>data2</code> and <code>data3</code> (Chapter 10, <em>tibbles and readr</em>). Open <code>Dataset3.csv</code> in a text editor first: it was exported by a collaborator whose software uses a <strong>semicolon</strong> to separate columns. Check the help for <code>read_delim()</code> or <code>read.csv()</code> for the argument that sets the separator.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data1 &lt;-</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data2 &lt;-</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data3 &lt;-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="inspect-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="inspect-the-data">3. Inspect the data</h2>
+<p>Use <code>str()</code> on all three objects.</p>
+<p><strong>Question 1:</strong> Which columns did R import as a type you did not expect, and what in the raw files caused it? (Look at the values in those columns.)</p>
+<p><strong>Answer:</strong></p>
+</section>
+<section id="fix-the-missing-values" class="level2">
+<h2 class="anchored" data-anchor-id="fix-the-missing-values">4. Fix the missing values</h2>
+<p>The columns from Question 1 contain words where numbers are expected. Use <code>mutate()</code> (Chapter 10, <em>mutate() Columns</em>) with <code>as.numeric()</code> to convert them; R replaces anything it cannot read as a number with <code>NA</code> (the warning <code>NAs introduced by coercion</code> is expected here). Then count the missing values in each converted column with <code>sum(is.na())</code> (Chapter 10, <em>is.na()</em>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data2 &lt;-</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data3 &lt;-</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># count the NAs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="rename-the-measurement-columns" class="level2">
+<h2 class="anchored" data-anchor-id="rename-the-measurement-columns">5. Rename the measurement columns</h2>
+<p><code>data2</code> and <code>data3</code> both have columns called <code>PC1</code> and <code>PC2</code>. Use <code>rename()</code> (Chapter 10, <em>rename() Columns</em>) to give them names that say where they came from, for example <code>micro_PC1</code>/<code>micro_PC2</code> and <code>urine_PC1</code>/<code>urine_PC2</code> (hospital) or <code>invert_PC1</code>/<code>invert_PC2</code> and <code>chem_PC1</code>/<code>chem_PC2</code> (lakes). Check the result with <code>names()</code>.</p>
+<p><strong>Question 2:</strong> What would have happened to these column names if you had joined <code>data2</code> and <code>data3</code> without renaming? (Try it in the Console if you are not sure.)</p>
+<p><strong>Answer:</strong></p>
+</section>
+<section id="make-sure-date-is-a-date" class="level2">
+<h2 class="anchored" data-anchor-id="make-sure-date-is-a-date">6. Make sure <code>Date</code> is a date</h2>
+<p>Check <code>class()</code> of the <code>Date</code> column in each of the three objects. If any of them is <code>character</code>, convert it with <code>ymd()</code> from <code>lubridate</code> (Chapter 10, <em>date Objects</em>). All three must be the same class before you join, or the join will refuse to match them.</p>
+</section>
+</section>
+<section id="part-2-join-the-files" class="level1">
+<h1>Part 2 — Join the files</h1>
+<section id="full-join-by-id-and-date" class="level2">
+<h2 class="anchored" data-anchor-id="full-join-by-id-and-date">7. Full join by ID and Date</h2>
+<p>Combine the three objects into one called <code>all_data</code> with <code>full_join()</code> (Chapter 10, <em>Join Datasets</em>), matching rows that have the same <code>ID</code> <strong>and</strong> the same <code>Date</code>: <code>by = c("ID", "Date")</code>. Two joins are needed. Check the dimensions.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all_data &lt;-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="compare-the-join-verbs" class="level2">
+<h2 class="anchored" data-anchor-id="compare-the-join-verbs">8. Compare the join verbs</h2>
+<p>Using only <code>data1</code> and <code>data2</code>, report the number of rows returned by <code>inner_join()</code>, <code>left_join()</code>, <code>right_join()</code> and <code>full_join()</code> (all <code>by = c("ID", "Date")</code>). <code>nrow()</code> is enough; do not print the tables.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inner</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># left</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># right</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># full</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Question 3:</strong> The four numbers differ. Explain which rows each verb keeps, and what that tells you about samples that are in one file but not the other.</p>
+<p><strong>Answer:</strong></p>
+</section>
+</section>
+<section id="part-3-dates-summaries-and-ordering" class="level1">
+<h1>Part 3 — Dates, summaries and ordering</h1>
+<section id="add-year-and-month" class="level2">
+<h2 class="anchored" data-anchor-id="add-year-and-month">9. Add year and month</h2>
+<p>Add a <code>Year</code> column and a <code>Month</code> column to <code>all_data</code> with <code>mutate()</code> and the <code>lubridate</code> functions <code>year()</code> and <code>month()</code> (Chapter 10, <em>Extracting Components</em>).</p>
+</section>
+<section id="summarise-concentration-by-year" class="level2">
+<h2 class="anchored" data-anchor-id="summarise-concentration-by-year">10. Summarise concentration by year</h2>
+<p>Use <code>group_by()</code> and <code>summarise()</code> (Chapter 10, <em>summarise() + group_by()</em>) to calculate the mean and standard deviation of <code>Conc</code> for each <code>Year</code>. Remember <code>na.rm = TRUE</code> (Chapter 10, <em>NA and na.rm()</em>). Save the result as <code>year_summary</code> and print it.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># year_summary &lt;-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Question 4:</strong> Does concentration differ between the two years? Answer in one or two sentences from the table.</p>
+<p><strong>Answer:</strong></p>
+</section>
+<section id="the-five-highest-concentrations" class="level2">
+<h2 class="anchored" data-anchor-id="the-five-highest-concentrations">11. The five highest concentrations</h2>
+<p>Use <code>arrange()</code> with <code>desc()</code> (Chapter 10, <em>arrange() Rows</em>) and <code>select()</code> (Chapter 10, <em>select() Columns</em>) to show the five samples with the highest <code>Conc</code>, with only the <code>ID</code>, <code>Year</code> and <code>Conc</code> columns. Pipe the steps together with <code>%&gt;%</code> (Chapter 10, <em>%&gt;%</em>).</p>
+</section>
+</section>
+<section id="part-4-reshape" class="level1">
+<h1>Part 4 — Reshape</h1>
+<section id="wide-to-long" class="level2">
+<h2 class="anchored" data-anchor-id="wide-to-long">12. Wide to long</h2>
+<p>Starting from <code>all_data</code>, the four measurement columns you renamed in Section 5 (e.g.&nbsp;<code>micro_PC1</code>, <code>micro_PC2</code>, <code>urine_PC1</code>, <code>urine_PC2</code>) are in <em>wide</em> format. Use <code>pivot_longer()</code> (Chapter 10, <em>pivot_longer</em>) on <code>all_data</code> to stack those four columns into two, <code>Measure</code> (which column the value came from) and <code>Score</code> (the value). Save the result as <code>long_data</code> and check it with <code>head()</code> and <code>dim()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># long_data &lt;-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now use <code>long_data</code> to draw histograms of <code>Score</code> with <code>facet_wrap()</code> so that each <code>Measure</code> gets its own panel (Chapter 4 and Chapter 7). Choose a sensible <code>binwidth</code>, add axis labels and a title, and use <code>theme_classic()</code>.</p>
+</section>
+<section id="long-to-wide" class="level2">
+<h2 class="anchored" data-anchor-id="long-to-wide">13. Long to wide</h2>
+<p>Each <code>ID</code> was sampled once in each year. Starting from <code>all_data</code>, <code>select()</code> only <code>ID</code>, <code>Year</code> and <code>Conc</code>, then use <code>pivot_wider()</code> (Chapter 10, <em>pivot_wider</em>) so that there is one row per <code>ID</code> with a column for each year. Save it as <code>wide_conc</code>. Then add a <code>Change</code> column equal to the second year minus the first (column names that start with a digit must be wrapped in back-ticks, e.g.&nbsp;<code>`2022`</code>), and count how many IDs increased.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># wide_conc &lt;-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Question 5:</strong> How many IDs have a higher concentration in the second year than in the first, and how many have <code>NA</code> for the change? Why are there NAs?</p>
+<p><strong>Answer:</strong></p>
+</section>
+</section>
+<section id="part-5-test-the-hypothesis-visually" class="level1">
+<h1>Part 5 — Test the hypothesis visually</h1>
+<section id="pc1-against-pc2" class="level2">
+<h2 class="anchored" data-anchor-id="pc1-against-pc2">14. PC1 against PC2</h2>
+<p>Use <code>ggplot()</code> to plot <code>PC1</code> on the x-axis and <code>PC2</code> on the y-axis for <strong>one</strong> of the two measurement sets, with <code>colour = Conc</code> so that concentration is shown by colour, and <code>facet_wrap()</code> by <code>Year</code>. Include <code>theme_classic()</code>, axis labels and a title (Chapter 4 and Chapter 7). Repeat for the other measurement set if it helps you answer Question 6. A few points will be <strong>grey</strong>: those are samples with no concentration value (<code>Conc</code> is <code>NA</code> because they were not in <code>Dataset1.csv</code>), so no colour can be assigned. Ignore them when you answer Question 6, or drop them first with <code>filter(!is.na(Conc))</code>.</p>
+<p><strong>Question 6:</strong> What do the data say about the hypothesis in your scenario (patients with similar viral loads have similar gut microbes and urine metabolites, or lakes with similar arsenic levels have similar invertebrate communities and water chemistry)? Answer in a short paragraph from visual inspection of your figures. For now, assume that any strong pattern is statistically robust; later we will learn to test this with models.</p>
+<p><strong>Answer:</strong></p>
+<p><strong>Question 7:</strong> Read the scenario you did not choose. What, if anything, would you have done differently in the code? What does this tell you about coding as a transferable skill?</p>
+<p><strong>Answer:</strong></p>
+</section>
+</section>
+<section id="do-this-last" class="level1 unnumbered">
+<h1 class="unnumbered">DO THIS LAST</h1>
+<p>When your document is finished and knitted, copy and paste this into the R Console to stop positpal and create your coding log. <strong>Do not include it as a code chunk.</strong></p>
+<pre><code>positpal::stop_capture()
+positpal::export_capture()</code></pre>
+<p><code>export_capture()</code> prints the name and location of the <code>my-capture-YYYYMMDD-HHMMSS.zip</code> it creates beside this file. <strong>Each group member</strong> uploads their own <code>.zip</code> to the <strong>“CC3 — Coding Log (individual)”</strong> dropbox on OnQ; the group’s <code>.Rmd</code> and knitted <code>.html</code> go to your section’s <strong>TUT02-CC3</strong> or <strong>TUT03-CC3</strong> folder. Submissions without the log are incomplete. If <code>export_capture()</code> fails, zip the <code>.capture</code> folder yourself and upload that instead.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

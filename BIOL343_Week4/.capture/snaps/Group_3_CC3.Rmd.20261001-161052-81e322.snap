@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-**Scenario chosen** (hospital or lakes; see the instructions): Lakes Scenario
+**Scenario chosen** (hospital or lakes; see the instructions):
 
 # DO THIS FIRST {-}
 
@@ -62,11 +62,11 @@ Import each file and save them as `data1`, `data2` and `data3` (Chapter 10, *tib
 
 ```{r import-data}
 
-data1=read_csv("Data/Dataset1.csv")
+data1=read.csv("Dataset1.csv")
 
-data2=read_csv("Data/Dataset2.csv")
+data2=read.csv("Dataset2.csv")
 
-data3=read_delim("Data/Dataset3.csv", delim=";")
+data3=read("Dataset3.csv")
 
 ```
 
@@ -76,47 +76,23 @@ Use `str()` on all three objects.
 
 ```{r inspect-data}
 
-str(data1)
-str(data2)
-str(data3)
-
 ```
 
 **Question 1:** Which columns did R import as a type you did not expect, and what in the raw files caused it? (Look at the values in those columns.)
 
-**Answer:** For data1 & data2 the Date was imported as a string of characters instead of proper date object like in data3. 
-            PC1 & PC2 for data2 & data3 are listed as characters whereas in the excel doc they are numerically values and should be listed as such in the string.
-            It's likely that the slashes '-' in between the day, month, and years values for dates resulted in it being read as a text/ character rather then a Date. 
-            It's also possibly that because of some cells being filled in as 'N/A' the PC1 & PC2 values could not be read as numerical since not all cells contained a number value. 
-            Might be a off chance the the negative sign '-' in front of some of the values could also have caused it to be read as a character rather than a number value.
+**Answer:**
 
 ## 4. Fix the missing values
 
 The columns from Question 1 contain words where numbers are expected. Use `mutate()` (Chapter 10, *mutate() Columns*) with `as.numeric()` to convert them; R replaces anything it cannot read as a number with `NA` (the warning `NAs introduced by coercion` is expected here). Then count the missing values in each converted column with `sum(is.na())` (Chapter 10, *is.na()*).
 
 ```{r fix-missing}
-# Converting data2 from chr to num
-data2= data2 %>%
-    mutate(PC1=as.numeric(PC1), 
-    PC2=as.numeric(PC2))
 
-#str(data2$PC1) Used to test the output is now numerical
-#unique(data2$PC1)
+# data2 <-
 
-# Converting data3 from chr to num
-data3=data3 |> 
-    mutate(PC1=as.numeric(PC1), 
-    PC2=as.numeric(PC2))
-
-#str(data2$PC1) Used to test the output it now numerical
-#unique(data2$PC1) 
+# data3 <-
 
 # count the NAs
-sum(is.na(data2$PC1)) # Sums how many NAs the data2 csv has for PC1
-sum(is.na(data2$PC2)) # Sums how many NAs the data2 csv has for PC2
-sum(is.na(data3$PC1)) # Sums how many NAs the data3 csv has for PC1
-sum(is.na(data3$PC2)) # Sums how many NAs the data3 csv has for PC2
-
 
 ```
 
@@ -126,33 +102,17 @@ sum(is.na(data3$PC2)) # Sums how many NAs the data3 csv has for PC2
 
 ```{r rename-columns}
 
-# renaming data2 PC1 & PC2 columns to exampels given above for Lake scenario
-data2=rename(data2, invert_PC1 = PC1, invert_PC2 = PC2)
-names(data2)
-
-# renaming data3 PC1 & PC2 columns to exampels given above for Lake scenario
-data3=rename(data3, chem_PC1 = PC1, chem_PC2 = PC2)
-names(data3)
-
 ```
 
 **Question 2:** What would have happened to these column names if you had joined `data2` and `data3` without renaming? (Try it in the Console if you are not sure.)
 
-**Answer:** If the columns where not renamed before combining the data then they still would have been kept seperate and given extra labelling to the titles of each column in order to differentiate them (ex. would be labelled PC1.x vs PC1.y and PC2.x vs PC2.y to tell the two apart). This happens when "ID" is specficied as what infomation we would use to join the columns together. If nothing was specified for what to join the data sets by it is possible that PC1 & PC2 from both data sets would try to be combined into one and result in errors. 
+**Answer:**
 
 ## 6. Make sure `Date` is a date
 
-Check `class()` of the `Date` column in each of the three objects. If any of them is `character`, convert it with `ymd()` from `lubridate` (Chapter 10, *date Objects*). All three must be the same class before you join, or the join will refuse to match them. 
+Check `class()` of the `Date` column in each of the three objects. If any of them is `character`, convert it with `ymd()` from `lubridate` (Chapter 10, *date Objects*). All three must be the same class before you join, or the join will refuse to match them.
 
 ```{r fix-dates}
-# Checking date for data1
-class(data1$Date)
-
-# Checking date for data2
-class(data2$Date)
-
-# Checking date for data3
-class(data3$Date)
 
 ```
 

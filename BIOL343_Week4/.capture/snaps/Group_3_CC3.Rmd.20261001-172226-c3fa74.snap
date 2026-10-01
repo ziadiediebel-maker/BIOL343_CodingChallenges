@@ -146,13 +146,12 @@ Check `class()` of the `Date` column in each of the three objects. If any of the
 
 ```{r fix-dates}
 # Checking date for data1
-class(data1$Date)
+
 
 # Checking date for data2
-class(data2$Date)
 
 # Checking date for data3
-class(data3$Date)
+
 
 ```
 

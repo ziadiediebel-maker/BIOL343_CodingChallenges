@@ -145,14 +145,8 @@ names(data3)
 Check `class()` of the `Date` column in each of the three objects. If any of them is `character`, convert it with `ymd()` from `lubridate` (Chapter 10, *date Objects*). All three must be the same class before you join, or the join will refuse to match them. 
 
 ```{r fix-dates}
-# Checking date for data1
-class(data1$Date)
 
-# Checking date for data2
-class(data2$Date)
 
-# Checking date for data3
-class(data3$Date)
 
 ```
 

@@ -126,33 +126,19 @@ sum(is.na(data3$PC2)) # Sums how many NAs the data3 csv has for PC2
 
 ```{r rename-columns}
 
-# renaming data2 PC1 & PC2 columns to exampels given above for Lake scenario
-data2=rename(data2, invert_PC1 = PC1, invert_PC2 = PC2)
-names(data2)
-
-# renaming data3 PC1 & PC2 columns to exampels given above for Lake scenario
-data3=rename(data3, chem_PC1 = PC1, chem_PC2 = PC2)
-names(data3)
-
+# renaming data2 PC1 & PC2 columns to
+data
 ```
 
 **Question 2:** What would have happened to these column names if you had joined `data2` and `data3` without renaming? (Try it in the Console if you are not sure.)
 
-**Answer:** If the columns where not renamed before combining the data then they still would have been kept seperate and given extra labelling to the titles of each column in order to differentiate them (ex. would be labelled PC1.x vs PC1.y and PC2.x vs PC2.y to tell the two apart). This happens when "ID" is specficied as what infomation we would use to join the columns together. If nothing was specified for what to join the data sets by it is possible that PC1 & PC2 from both data sets would try to be combined into one and result in errors. 
+**Answer:**
 
 ## 6. Make sure `Date` is a date
 
-Check `class()` of the `Date` column in each of the three objects. If any of them is `character`, convert it with `ymd()` from `lubridate` (Chapter 10, *date Objects*). All three must be the same class before you join, or the join will refuse to match them. 
+Check `class()` of the `Date` column in each of the three objects. If any of them is `character`, convert it with `ymd()` from `lubridate` (Chapter 10, *date Objects*). All three must be the same class before you join, or the join will refuse to match them.
 
 ```{r fix-dates}
-# Checking date for data1
-class(data1$Date)
-
-# Checking date for data2
-class(data2$Date)
-
-# Checking date for data3
-class(data3$Date)
 
 ```
 
