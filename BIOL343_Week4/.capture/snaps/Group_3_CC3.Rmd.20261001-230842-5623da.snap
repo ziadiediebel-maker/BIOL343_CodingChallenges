@@ -62,7 +62,7 @@ Import each file and save them as `data1`, `data2` and `data3` (Chapter 10, *tib
 
 ```{r import-data}
 
-data1=read_csv("Data/Dataset1.csv")
+data1=read_csv("BIOL343_Week4/Data/Dataset1.csv")
 
 data2=read_csv("Data/Dataset2.csv")
 
@@ -85,10 +85,10 @@ str(data3)
 **Question 1:** Which columns did R import as a type you did not expect, and what in the raw files caused it? (Look at the values in those columns.)
 
 **Answer:** For data1 & data2 the Date was imported as a string of characters instead of proper date object like in data3. 
-PC1 & PC2 for data2 & data3 are listed as characters whereas in the excel doc they are numerically values and should be listed as such in the string.
-It's likely that the slashes '-' in between the day, month, and years values for dates resulted in it being read as a text/ character rather then a Date. 
-It's also possibly that because of some cells being filled in as 'N/A' the PC1 & PC2 values could not be read as numerical since not all cells contained a number value. 
-Might be a off chance the the negative sign '-' in front of some of the values could also have caused it to be read as a character rather than a number value.
+            PC1 & PC2 for data2 & data3 are listed as characters whereas in the excel doc they are numerically values and should be listed as such in the string.
+            It's likely that the slashes '-' in between the day, month, and years values for dates resulted in it being read as a text/ character rather then a Date. 
+            It's also possibly that because of some cells being filled in as 'N/A' the PC1 & PC2 values could not be read as numerical since not all cells contained a number value. 
+            Might be a off chance the the negative sign '-' in front of some of the values could also have caused it to be read as a character rather than a number value.
 
 ## 4. Fix the missing values
 
@@ -109,8 +109,8 @@ data2= data2 |>
 # Converting data3 from chr to num
 data3=data3 |> 
     mutate(
-        PC1=as.numeric(PC1), 
-        PC2=as.numeric(PC2)
+        chem_PC1=as.numeric(chem_PC1), 
+        chem_PC2=as.numeric(chem_PC2)
         )
 
 #str(data2$PC1) Used to test the output it now numerical
@@ -233,9 +233,10 @@ head(all_data)
 Use `group_by()` and `summarise()` (Chapter 10, *summarise() + group_by()*) to calculate the mean and standard deviation of `Conc` for each `Year`. Remember `na.rm = TRUE` (Chapter 10, *NA and na.rm()*). Save the result as `year_summary` and print it.
 
 ```{r year-summary}
+names(all_data)
 
 year_summary = all_data|> 
-    group_by(Year) |> 
+    group_by(Year)
     summarise(
         mean_conc=mean(Conc, na.rm=TRUE), 
         sd_conc=sd(Conc, na.rm=TRUE)
@@ -247,7 +248,7 @@ year_summary
 
 **Question 4:** Does concentration differ between the two years? Answer in one or two sentences from the table.
 
-**Answer:** Yes the concentration differs between the years 2021 and 2022. They appear to differ significantly given the meal for 2021 is 10.2 vs for 2022 which is 0.964. The standard deviation also supports this observations, for the year 2021 the sd is 6.14 and for 2022 it is 1.46. It is likely the year 2022 has more negative concentration values whereas the year 2021 likely has more positive concentrations. The below code also supports this predicition showing the 5 highest concentrations are all from the year 2021. 
+**Answer:**
 
 ## 11. The five highest concentrations
 
