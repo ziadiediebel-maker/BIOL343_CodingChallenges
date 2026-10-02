@@ -123,19 +123,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="group-members" class="level2">
 <h2 class="anchored" data-anchor-id="group-members">Group Members</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Name - Queen's Student Number</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Ziadie Diebel - 20463388</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Ziadie Diebel - 20463388</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Name - Queen's Student Number</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Name - Queen's Student Number</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Name - Queen's Student Number</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Name - Queen's Student Number</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Name - Queen's Student Number</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Name - Queen's Student Number</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Name - Queen's Student Number</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Name - Queen's Student Number</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>Scenario chosen</strong> (hospital or lakes; see the instructions): Lakes Scenario</p>
+<p><strong>Scenario chosen</strong> (hospital or lakes; see the instructions): Lakes Scenario was chosen</p>
 </section>
 </section>
 <section id="do-this-first" class="level1 unnumbered">
@@ -213,7 +211,7 @@ date (1): Date
   ..   Date = col_date(format = ""),
   ..   Conc = col_double()
   .. )
- - attr(*, "problems")=&lt;pointer: 0x7a8f801a0&gt; </code></pre>
+ - attr(*, "problems")=&lt;pointer: 0x9c88515e0&gt; </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -229,7 +227,7 @@ date (1): Date
   ..   PC1 = col_character(),
   ..   PC2 = col_character()
   .. )
- - attr(*, "problems")=&lt;pointer: 0x7a8f801f0&gt; </code></pre>
+ - attr(*, "problems")=&lt;pointer: 0x9c88515f0&gt; </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -245,7 +243,7 @@ date (1): Date
   ..   PC1 = col_character(),
   ..   PC2 = col_character()
   .. )
- - attr(*, "problems")=&lt;pointer: 0x7a8f800e0&gt; </code></pre>
+ - attr(*, "problems")=&lt;pointer: 0x9c8851600&gt; </code></pre>
 </div>
 </div>
 <p><strong>Question 1:</strong> Which columns did R import as a type you did not expect, and what in the raw files caused it? (Look at the values in those columns.)</p>
@@ -326,7 +324,7 @@ Caused by warning:
 </div>
 </div>
 <p><strong>Question 2:</strong> What would have happened to these column names if you had joined <code>data2</code> and <code>data3</code> without renaming? (Try it in the Console if you are not sure.)</p>
-<p><strong>Answer:</strong> If the columns where not renamed before combining the data then they still would have been kept seperate and given extra labelling to the titles of each column in order to differentiate them (ex. would be labelled PC1.x vs PC1.y and PC2.x vs PC2.y to tell the two apart). This happens when “ID” is specficied as what infomation we would use to join the columns together. If nothing was specified for what to join the data sets by it is possible that PC1 &amp; PC2 from both data sets would try to be combined into one and result in errors.</p>
+<p><strong>Answer:</strong> If the columns where not renamed before combining the data then they still would have been kept seperate and given extra labelling to the titles of each column in order to differentiate them (e.g.&nbsp;they would be labelled PC1.x vs PC1.y and PC2.x vs PC2.y to tell the two apart). This happens when “ID” is specficied as what infomation we would use to join the columns together. If nothing was specified for what to join the data sets by it is possible that PC1 &amp; PC2 from both data sets would try to be combined into one and result in errors.</p>
 </section>
 <section id="make-sure-date-is-a-date" class="level2">
 <h2 class="anchored" data-anchor-id="make-sure-date-is-a-date">6. Make sure <code>Date</code> is a date</h2>
@@ -436,7 +434,7 @@ Caused by warning:
 </div>
 </div>
 <p><strong>Question 3:</strong> The four numbers differ. Explain which rows each verb keeps, and what that tells you about samples that are in one file but not the other.</p>
-<p><strong>Answer:</strong> inner_join() outputs 782 meaning it only keeps the 782 rows in both files and doesn’t include rows found only in data1 or only in data2. left_join() outputs 794 meaning it keeps only all the 794 rows from data1, meaning data1 has 12 more outputs that differ from data2 (794-788). right_join() outputs 788 meaning it keeps only all the 788 rows from data2, meaning data2 has 6 more putputs that differ from data1 (788-782). full_join() outputs 800 the highest number from all the ouputs as this function keeps everything from both data1 and data2 files (To check this the sum of the outputs shared between both data sets and the outputs only one data set has should sum to 800. e.g.&nbsp;782 + 12 + 6 = 800).</p>
+<p><strong>Answer:</strong> inner_join() outputs 782 meaning it only keeps the 782 rows in both files and doesn’t include rows found only in the data1 or only in the data2 file. left_join() outputs 794 meaning it keeps only all the 794 rows from data1, meaning data1 has 12 more rows that differ from data2 (794-788). right_join() outputs 788 meaning it keeps only all the 788 rows from data2, meaning data2 has 6 more rows that differ from data1 (788-782). full_join() outputs 800 the highest number from all the ouputs as this function keeps everything from both data1 and data2 files (To check this the sum of the rows shared between both data sets and the rows only one data set has should sum to 800. (e.g.&nbsp;782 + 12 + 6 = 800)).</p>
 </section>
 </section>
 <section id="part-3-dates-summaries-and-ordering" class="level1">
@@ -488,7 +486,7 @@ Caused by warning:
 </div>
 </div>
 <p><strong>Question 4:</strong> Does concentration differ between the two years? Answer in one or two sentences from the table.</p>
-<p><strong>Answer:</strong> Yes the concentration differs between the years 2021 and 2022. They appear to differ significantly given the mean for 2021 is 10.2 vs for 2022 which is 0.964. The standard deviation also supports this observations, for the year 2021 the sd is 6.14 and for 2022 it is 1.46. It is likely the year 2022 has more negative concentration values whereas the year 2021 likely has more positive concentrations. The below code also supports this predicition showing the 5 highest concentrations are all from the year 2021.</p>
+<p><strong>Answer:</strong> Yes the concentration differs between the years, with a mean of 10.2 (sd=6.14) for 2021 and a mean of 0.964 (sd = 1.46) for 2022. The 2021 data also shows much higher variability compared to the 2022 data.</p>
 </section>
 <section id="the-five-highest-concentrations" class="level2">
 <h2 class="anchored" data-anchor-id="the-five-highest-concentrations">11. The five highest concentrations</h2>
@@ -599,7 +597,7 @@ Caused by warning:
 </div>
 </div>
 <p><strong>Question 5:</strong> How many IDs have a higher concentration in the second year than in the first, and how many have <code>NA</code> for the change? Why are there NAs?</p>
-<p><strong>Answer:</strong> 19 IDs have a higher concentration in the second year than in the first. 6 IDs have NA for the change column. They are likely NAs because calculating the change requires a concentration value for both years for a given ID. If a cell is missing a value for one of the years or both subtracting the one year from the other will lead to the resulting NAs.</p>
+<p><strong>Answer:</strong> 19 IDs have a higher concentration in the second year than in the first. 6 IDs have NA for the change column. They are likely NAs because calculating the change requires a concentration value for both years for a given ID. If a cell is missing a value for one of the years or both subtracting the one year from the other will lead to the resulting NAs (e.g.&nbsp;6-NA = NA or NA-10 = NA or NA-NA = NA).</p>
 </section>
 </section>
 <section id="part-5-test-the-hypothesis-visually" class="level1">
@@ -618,7 +616,7 @@ Caused by warning:
 <span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Invertebrate PC1 vs PC2 by Year"</span>, </span>
 <span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Invertebrate PC1"</span>, </span>
 <span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Invertebrate PC2"</span>, </span>
-<span id="cb77-11"><a href="#cb77-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">colour =</span> <span class="st">"Concentration"</span></span>
+<span id="cb77-11"><a href="#cb77-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">colour =</span> <span class="st">"Arsenic Concentration"</span></span>
 <span id="cb77-12"><a href="#cb77-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span> </span>
 <span id="cb77-13"><a href="#cb77-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
@@ -642,7 +640,7 @@ Caused by warning:
 <span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Chemical PC1 vs PC2 by Year"</span>, </span>
 <span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Chemical PC1"</span>, </span>
 <span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Chemical PC2"</span>,</span>
-<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">colour =</span> <span class="st">"Concentration"</span></span>
+<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">colour =</span> <span class="st">"Arsenic Concentration"</span></span>
 <span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span> </span>
 <span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
@@ -658,11 +656,14 @@ Caused by warning:
 </div>
 </div>
 <p><strong>Question 6:</strong> What do the data say about the hypothesis in your scenario (patients with similar viral loads have similar gut microbes and urine metabolites, or lakes with similar arsenic levels have similar invertebrate communities and water chemistry)? Answer in a short paragraph from visual inspection of your figures. For now, assume that any strong pattern is statistically robust; later we will learn to test this with models.</p>
-<p><strong>Answer:</strong> Looking at the figures created it appears that the data does not support the hypothesis. If lakes with similar arsenic levels had similar chemical/ biological communities, we would expect to see distinct colour clustering or a smooth gradient across the PC space (e.g., higher concentration points grouping together on one side and lower concentrations on the other).</p>
-<p>Instead, the points representing different concentration values (colours ranging from dark to light blue) are throughly mixed and randomly scattered throughout both the 2021 and 2022 panels. This indicates that chemical/ biological communities across PC1 and PC2 varies independetly (not dependent on arsenic concentrations).</p>
+<p><strong>Answer:</strong> Looking at the figures created it appears that the data does mainly support the hypothesis (mainly focusing on 2021 that provided more of a range and easily identifiable differences in concentration levels). If lakes with similar arsenic levels had similar invertebrate communities and water chemistry, we would expect to see distinct colour clustering or a smooth gradient across the graph (e.g., higher concentration points grouping together on one side and lower concentrations on the other, going from light blue to dark blue or the other way around). When looking at the graphs dark blue points representing low concentrations and light blue points representing high concentrations seem to be seperated going from darker to lighter or the inverse. We mainly see this pattern for 2021 and for 2022 the concentration appears to be the almost the exact same throughout.</p>
+<p>2021 Invertebrate Plot: High arsenic concentrations appear more frequently in the right bottom side of the graph where PC1 values are higher (in the positive range) and PC2 values are lower (in the negative range). Low arsenic concentrations appear more frequently in the left top side of the graph where PC1 values are lower (in the neative range) and PC2 values are higher (in the positive range). The gradient appears to move from bottom right to top left of the graph (moving from high to low concentrations, light to dark blue).</p>
+<p>2022 Invertebrate Plot: A significant change compared to the concentrations in 2021 can be observed when looking at the two plots. The majority of the points appear to cluster in the middle of the graph and seem to all be around the same colour gradient representing low arsenic concentrations. This shows that the arsenic concentration levels have decreased since 2021.</p>
+<p>2021 Chemical Plot: High arsenic concentrations appear more frequently in the left top side of the graph where PC1 values are lower (in the negative range) and PC2 values are higher (in the positive range). Low arsenic concetrations appear more frequently in the right bottom side of the grapg where PC1 values are higher (in the positive range) and PC2 values are lower (in the negative range). The gradienti appear to move from the top left to the bottom right of the graph (moving from high to low concentrations, light to dark blue)</p>
+<p>2022 Chemical Plot: A significant change compared to the concentrations in 2021 can be observed when looking the the two plots. The majority of the points appear to cluster in the middle of the graph with the exception of the few outliers. The points in 2022 also all appear to be around the same colour (dark blue) meaning they are all about the same concentration (low). This shows that the arsenic concetration levels have decreased significantly since 2021.</p>
 <p><strong>Question 7:</strong> Read the scenario you did not choose. What, if anything, would you have done differently in the code? What does this tell you about coding as a transferable skill?</p>
-<p><strong>Answer:</strong> Reading the hospital scenario things I would have changed in the code are the naming for PC1 &amp; PC2 from both data2 and data3 as they represent different values/ components for the hospital scenario. Overall though these 2 different scenarios show how easily transferable coding can be. One code that you used for a certain experiement might be easily able to be used for another similar experiment.</p>
-<p>For example, you are measuring concentration of water vs salinity in marine organisms. This process might be similar enough to running the same with mammals and might also be measured using the exact same components.Therefore you might be able to use the one methods code and transfer it into the same experiment run on mammals. This type of coding helps save time if you can atleast take the skeleton of a code similar to what you need and then specify it to your specific case.</p>
+<p><strong>Answer:</strong> Reading the hospital scenario some things I would have changed in the code are the naming for PC1 &amp; PC2 from both data2 and data3 as they represent different values/ components for the hospital scenario. As well as the labelling for the graphs and anything else to represent that situation. Overall though these 2 different scenarios show how easily transferable coding can be. One code that you used for a certain experiment might be easily able to be used for another similar experiment.</p>
+<p>For example, you are measuring concentrations of water vs salinity in marine organisms. This process might be similar enough to running the same with mammals and might also be measured using the exact same components. Therefore you might be able to use the one methods code and transfer it into the same experiment run on mammals. This type of coding helps save time if you can at least use the skeleton of a code similar to what you need and then specify it to your specific experiment.</p>
 </section>
 </section>
 <section id="do-this-last" class="level1 unnumbered">
