@@ -25,6 +25,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # 5. Henry Moore - 20474140
 
+
 ```
 
 **Scenario chosen** (hospital or lakes; see the instructions): Lakes Scenario was chosen
