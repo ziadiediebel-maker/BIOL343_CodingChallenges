@@ -246,7 +246,7 @@ year_summary
 
 **Question 4:** Does concentration differ between the two years? Answer in one or two sentences from the table.
 
-**Answer:** Yes the concentration differs between the years, with a mean of 10.2 (sd=6.14) for 2021 vs a mean of 0.964 (sd = 1.46) for 2022. The 2021 data also shows much higher variability compared to the 2022 data.
+**Answer:** Yes the concentration differs between the years 2021 and 2022. They appear to differ significantly given the mean for 2021 is 10.2 (sd=6.14) vs for 2022 which is 0.964 (sd = 1.46). 
 
 ## 11. The five highest concentrations
 
@@ -373,14 +373,14 @@ all_data |>
 **Answer:** Looking at the figures created it appears that the data does not support the hypothesis.
 If lakes with similar arsenic levels had similar chemical/ biological communities, we would expect to see distinct colour clustering or a smooth gradient across the PC space (e.g., higher concentration points grouping together on one side and lower concentrations on the other). 
 
-Instead, the points representing different concentration values (colours ranging from dark to light blue) are thoroughly mixed and randomly scattered throughout both the 2021 and 2022 panels. This indicates that chemical/ biological communities across PC1 and PC2 varies independently (not dependent on arsenic concentrations). 
+Instead, the points representing different concentration values (colours ranging from dark to light blue) are throughly mixed and randomly scattered throughout both the 2021 and 2022 panels. This indicates that chemical/ biological communities across PC1 and PC2 varies independetly (not dependent on arsenic concentrations). 
 
 **Question 7:** Read the scenario you did not choose. What, if anything, would you have done differently in the code? What does this tell you about coding as a transferable skill?
 
-**Answer:** Reading the hospital scenario things I would have changed in the code are the naming for PC1 & PC2 from both data2 and data3 as they represent different values/ components for the hospital scenario. Overall though these 2 different scenarios show how easily transferable coding can be. One code that you used for a certain experiment might be easily able to be used for another similar experiment. 
+**Answer:** Reading the hospital scenario things I would have changed in the code are the naming for PC1 & PC2 from both data2 and data3 as they represent different values/ components for the hospital scenario. Overall though these 2 different scenarios show how easily transferable coding can be. One code that you used for a certain experiement might be easily able to be used for another similar experiment. 
 
-For example, you are measuring concentration of water vs salinity in marine organisms. This process might be similar enough to running the same with mammals and might also be measured using the exact same components. Therefore you might be able to use the one methods code and transfer it into the same experiment run on mammals. 
-This type of coding helps save time if you can at least take the skeleton of a code similar to what you need and then specify it to your specific case.
+For example, you are measuring concentration of water vs salinity in marine organisms. This process might be similar enough to running the same with mammals and might also be measured using the exact same components.Therefore you might be able to use the one methods code and transfer it into the same experiment run on mammals. 
+This type of coding helps save time if you can atleast take the skeleton of a code similar to what you need and then specify it to your specific case.
 
 # DO THIS LAST {-}
 

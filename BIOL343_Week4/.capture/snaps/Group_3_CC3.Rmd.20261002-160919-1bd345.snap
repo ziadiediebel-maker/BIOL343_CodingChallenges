@@ -373,7 +373,7 @@ all_data |>
 **Answer:** Looking at the figures created it appears that the data does not support the hypothesis.
 If lakes with similar arsenic levels had similar chemical/ biological communities, we would expect to see distinct colour clustering or a smooth gradient across the PC space (e.g., higher concentration points grouping together on one side and lower concentrations on the other). 
 
-Instead, the points representing different concentration values (colours ranging from dark to light blue) are thoroughly mixed and randomly scattered throughout both the 2021 and 2022 panels. This indicates that chemical/ biological communities across PC1 and PC2 varies independently (not dependent on arsenic concentrations). 
+Instead, the points representing different concentration values (colours ranging from dark to light blue) are thoroughly mixed and randomly scattered throughout both the 2021 and 2022 panels. This indicates that chemical/ biological communities across PC1 and PC2 varies independetly (not dependent on arsenic concentrations). 
 
 **Question 7:** Read the scenario you did not choose. What, if anything, would you have done differently in the code? What does this tell you about coding as a transferable skill?
 

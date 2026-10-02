@@ -207,7 +207,7 @@ nrow(full_join(data1, data2, by=c("ID", "Date"))) # Output: 800
 **Answer:** inner_join() outputs 782 meaning it only keeps the 782 rows in both files and doesn't include rows found only in data1 or only in data2. 
 left_join() outputs 794 meaning it keeps only all the 794 rows from data1, meaning data1 has 12 more outputs that differ from data2 (794-788). 
 right_join() outputs 788 meaning it keeps only all the 788 rows from data2, meaning data2 has 6 more putputs that differ from data1 (788-782).
-full_join() outputs 800 the highest number from all the ouputs as this function keeps everything from both data1 and data2 files (To check this the sum of the outputs shared between both data sets and the outputs only one data set has should sum to 800. e.g. 782 + 12 + 6 = 800). 
+full_join() outputs 800 the highest number from all the ouputs as this function keeps everything from both data1 and data2 files (To check this the sum of the 782 + 12 + 6 = 800). 
 
 # Part 3 — Dates, summaries and ordering
 
@@ -246,7 +246,7 @@ year_summary
 
 **Question 4:** Does concentration differ between the two years? Answer in one or two sentences from the table.
 
-**Answer:** Yes the concentration differs between the years, with a mean of 10.2 (sd=6.14) for 2021 vs a mean of 0.964 (sd = 1.46) for 2022. The 2021 data also shows much higher variability compared to the 2022 data.
+**Answer:** Yes the concentration differs between the years 2021 and 2022. They appear to differ significantly given the meal for 2021 is 10.2 vs for 2022 which is 0.964. The standard deviation also supports this observations, for the year 2021 the sd is 6.14 and for 2022 it is 1.46. It is likely the year 2022 has more negative concentration values whereas the year 2021 likely has more positive concentrations. The below code also supports this predicition showing the 5 highest concentrations are all from the year 2021. 
 
 ## 11. The five highest concentrations
 
@@ -329,7 +329,7 @@ sum(is.na(wide_conc$Change))
 
 **Question 5:** How many IDs have a higher concentration in the second year than in the first, and how many have `NA` for the change? Why are there NAs?
 
-**Answer:** 19 IDs have a higher concentration in the second year than in the first. 6 IDs have NA for the change column. They are likely NAs because calculating the change requires a concentration value for both years for a given ID. If a cell is missing a value for one of the years or both subtracting the one year from the other will lead to the resulting NAs.
+**Answer:** 19 IDs have a higher concentration in the seconf year than in the first. 6 IDs have NA for the change column. They are likely NAs because  calculating the change requires a concentration value for both years for a given ID. If a cell is missing a value for one of the years or both subtracting the one year from the other will lead to the resulting NAs.
 
 # Part 5 — Test the hypothesis visually
 
@@ -371,16 +371,14 @@ all_data |>
 **Question 6:** What do the data say about the hypothesis in your scenario (patients with similar viral loads have similar gut microbes and urine metabolites, or lakes with similar arsenic levels have similar invertebrate communities and water chemistry)? Answer in a short paragraph from visual inspection of your figures. For now, assume that any strong pattern is statistically robust; later we will learn to test this with models.
 
 **Answer:** Looking at the figures created it appears that the data does not support the hypothesis.
-If lakes with similar arsenic levels had similar chemical/ biological communities, we would expect to see distinct colour clustering or a smooth gradient across the PC space (e.g., higher concentration points grouping together on one side and lower concentrations on the other). 
+If lakes with similar arsenic levels had similar chemical/ biological communities, we would expect to see distinct colour clustering or a smooth gradient across the PC space (e.g., higher concentration points grouping together on one side). 
 
-Instead, the points representing different concentration values (colours ranging from dark to light blue) are thoroughly mixed and randomly scattered throughout both the 2021 and 2022 panels. This indicates that chemical/ biological communities across PC1 and PC2 varies independently (not dependent on arsenic concentrations). 
+Instead, the points representing different concentration values (colours ranging from yellow to dark purple) are throughly mixed and randomly scattered throughout both the 2021 and 2022 panels. This indicates that chemical composition across PC1 and PC2 varies independetly of arsenic concentration. 
 
 **Question 7:** Read the scenario you did not choose. What, if anything, would you have done differently in the code? What does this tell you about coding as a transferable skill?
 
-**Answer:** Reading the hospital scenario things I would have changed in the code are the naming for PC1 & PC2 from both data2 and data3 as they represent different values/ components for the hospital scenario. Overall though these 2 different scenarios show how easily transferable coding can be. One code that you used for a certain experiment might be easily able to be used for another similar experiment. 
-
-For example, you are measuring concentration of water vs salinity in marine organisms. This process might be similar enough to running the same with mammals and might also be measured using the exact same components. Therefore you might be able to use the one methods code and transfer it into the same experiment run on mammals. 
-This type of coding helps save time if you can at least take the skeleton of a code similar to what you need and then specify it to your specific case.
+**Answer:** Reading the hospital scenario things I would have changed in the code are the naming for PC1 & PC2 from both data2 and data3 as they represent different values/ components for the hospital scenario. Overall thoughb these 2 different scenarios show how easily transferable coding can be. One code that you used for a certain experiement might be easily able to be used for another similar experiment. Ex. you are measuring Concentration of water vs salinity in marine organisms might be similar enough to running the same experiments with mammals and might be measuring the exact same components and therefore you might be able to use the one method and codes and transfer it into the same experiment run on mammals. 
+This type of coding helps save time if you can atleast take the skeleton of a code similar to what you need and then specify it to your specific case.
 
 # DO THIS LAST {-}
 

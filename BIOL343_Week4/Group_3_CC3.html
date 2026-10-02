@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Group 3 - Ziadie Diebel (20463388)">
-<meta name="dcterms.date" content="2026-10-01">
+<meta name="dcterms.date" content="2026-10-02">
 
 <title>BIOL343 Coding Challenge 3</title>
 <style>
@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 1, 2026</p>
+      <p class="date">October 2, 2026</p>
     </div>
   </div>
   
@@ -135,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Name - Queen's Student Number</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>Scenario chosen</strong> (hospital or lakes; see the instructions):</p>
+<p><strong>Scenario chosen</strong> (hospital or lakes; see the instructions): Lakes Scenario</p>
 </section>
 </section>
 <section id="do-this-first" class="level1 unnumbered">
@@ -152,44 +152,218 @@ positpal::start("Group_3_CC3.Rmd")</code></pre>
 <section id="load-packages" class="level2">
 <h2 class="anchored" data-anchor-id="load-packages">1. Load packages</h2>
 <p>Load the packages you will use (Chapter 10, <em>Setup</em>): <code>dplyr</code>, <code>tidyr</code>, <code>lubridate</code>, <code>readr</code> and <code>ggplot2</code> (or <code>tidyverse</code>, which loads all of them).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="import-the-three-files" class="level2">
 <h2 class="anchored" data-anchor-id="import-the-three-files">2. Import the three files</h2>
 <p>Import each file and save them as <code>data1</code>, <code>data2</code> and <code>data3</code> (Chapter 10, <em>tibbles and readr</em>). Open <code>Dataset3.csv</code> in a text editor first: it was exported by a collaborator whose software uses a <strong>semicolon</strong> to separate columns. Check the help for <code>read_delim()</code> or <code>read.csv()</code> for the argument that sets the separator.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data1 &lt;-</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data2 &lt;-</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data3 &lt;-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data1<span class="ot">=</span><span class="fu">read_csv</span>(<span class="st">"Data/Dataset1.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 794 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl  (2): ID, Conc
+date (1): Date
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data2<span class="ot">=</span><span class="fu">read_csv</span>(<span class="st">"Data/Dataset2.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 788 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (2): PC1, PC2
+dbl  (1): ID
+date (1): Date
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data3<span class="ot">=</span><span class="fu">read_delim</span>(<span class="st">"Data/Dataset3.csv"</span>, <span class="at">delim=</span><span class="st">";"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 792 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr  (2): PC1, PC2
+dbl  (1): ID
+date (1): Date
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
 </div>
 </section>
 <section id="inspect-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="inspect-the-data">3. Inspect the data</h2>
 <p>Use <code>str()</code> on all three objects.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [794 × 3] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ ID  : num [1:794] 1291543 4972386 9934712 2711078 8171692 ...
+ $ Date: Date[1:794], format: "2022-05-03" "2021-05-27" ...
+ $ Conc: num [1:794] 3.131 12.808 0.211 0.439 0.327 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   ID = col_double(),
+  ..   Date = col_date(format = ""),
+  ..   Conc = col_double()
+  .. )
+ - attr(*, "problems")=&lt;pointer: 0x7a8f801a0&gt; </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [788 × 4] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ ID  : num [1:788] 3288208 7848312 7272390 6217553 8941937 ...
+ $ Date: Date[1:788], format: "2022-12-14" "2021-11-30" ...
+ $ PC1 : chr [1:788] "-0.391" "1.033" "2.472" "2.137" ...
+ $ PC2 : chr [1:788] "1.377" "-1.116" "-5.509" "-0.606" ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   ID = col_double(),
+  ..   Date = col_date(format = ""),
+  ..   PC1 = col_character(),
+  ..   PC2 = col_character()
+  .. )
+ - attr(*, "problems")=&lt;pointer: 0x7a8f801f0&gt; </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [792 × 4] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ ID  : num [1:792] 3140930 9478460 3008241 3131659 4629334 ...
+ $ Date: Date[1:792], format: "2021-03-02" "2021-10-07" ...
+ $ PC1 : chr [1:792] "0.0876666666666667" "-0.476666666666667" "-0.0643333333333333" "-0.784" ...
+ $ PC2 : chr [1:792] "1.719" "0.198" "1.944" "-3.525" ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   ID = col_double(),
+  ..   Date = col_date(format = ""),
+  ..   PC1 = col_character(),
+  ..   PC2 = col_character()
+  .. )
+ - attr(*, "problems")=&lt;pointer: 0x7a8f800e0&gt; </code></pre>
+</div>
+</div>
 <p><strong>Question 1:</strong> Which columns did R import as a type you did not expect, and what in the raw files caused it? (Look at the values in those columns.)</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> For data1 &amp; data2 the Date was imported as a string of characters instead of proper date object like in data3. PC1 &amp; PC2 for data2 &amp; data3 are listed as characters whereas in the excel doc they are numerically values and should be listed as such in the string. It’s likely that the slashes ‘-’ in between the day, month, and years values for dates resulted in it being read as a text/ character rather then a Date. It’s also possibly that because of some cells being filled in as ‘N/A’ the PC1 &amp; PC2 values could not be read as numerical since not all cells contained a number value. Might be a off chance the the negative sign ‘-’ in front of some of the values could also have caused it to be read as a character rather than a number value.</p>
 </section>
 <section id="fix-the-missing-values" class="level2">
 <h2 class="anchored" data-anchor-id="fix-the-missing-values">4. Fix the missing values</h2>
 <p>The columns from Question 1 contain words where numbers are expected. Use <code>mutate()</code> (Chapter 10, <em>mutate() Columns</em>) with <code>as.numeric()</code> to convert them; R replaces anything it cannot read as a number with <code>NA</code> (the warning <code>NAs introduced by coercion</code> is expected here). Then count the missing values in each converted column with <code>sum(is.na())</code> (Chapter 10, <em>is.na()</em>).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data2 &lt;-</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data3 &lt;-</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># count the NAs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting data2 from chr to num</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>data2<span class="ot">=</span> data2 <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">PC1=</span><span class="fu">as.numeric</span>(PC1), </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">PC2=</span><span class="fu">as.numeric</span>(PC2)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 2 warnings in `mutate()`.
+The first warning was:
+ℹ In argument: `PC1 = as.numeric(PC1)`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#str(data2$PC1) Used to test the output is now numerical</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#unique(data2$PC1)</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting data3 from chr to num</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>data3<span class="ot">=</span>data3 <span class="sc">|&gt;</span> </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">PC1=</span><span class="fu">as.numeric</span>(PC1), </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">PC2=</span><span class="fu">as.numeric</span>(PC2)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 2 warnings in `mutate()`.
+The first warning was:
+ℹ In argument: `PC1 = as.numeric(PC1)`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#str(data2$PC1) Used to test the output it now numerical</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#unique(data2$PC1) </span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># count the NAs</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(data2<span class="sc">$</span>PC1)) <span class="co"># Sums how many NAs the data2 csv has for PC1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(data2<span class="sc">$</span>PC2)) <span class="co"># Sums how many NAs the data2 csv has for PC2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(data3<span class="sc">$</span>PC1)) <span class="co"># Sums how many NAs the data3 csv has for PC1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(data3<span class="sc">$</span>PC2)) <span class="co"># Sums how many NAs the data3 csv has for PC2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
 </div>
 </section>
 <section id="rename-the-measurement-columns" class="level2">
 <h2 class="anchored" data-anchor-id="rename-the-measurement-columns">5. Rename the measurement columns</h2>
 <p><code>data2</code> and <code>data3</code> both have columns called <code>PC1</code> and <code>PC2</code>. Use <code>rename()</code> (Chapter 10, <em>rename() Columns</em>) to give them names that say where they came from, for example <code>micro_PC1</code>/<code>micro_PC2</code> and <code>urine_PC1</code>/<code>urine_PC2</code> (hospital) or <code>invert_PC1</code>/<code>invert_PC2</code> and <code>chem_PC1</code>/<code>chem_PC2</code> (lakes). Check the result with <code>names()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># renaming data2 PC1 &amp; PC2 columns to exampels given above for Lake scenario</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>data2<span class="ot">=</span><span class="fu">rename</span>(data2, <span class="at">invert_PC1 =</span> PC1, <span class="at">invert_PC2 =</span> PC2)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ID"         "Date"       "invert_PC1" "invert_PC2"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># renaming data3 PC1 &amp; PC2 columns to exampels given above for Lake scenario</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>data3<span class="ot">=</span><span class="fu">rename</span>(data3, <span class="at">chem_PC1 =</span> PC1, <span class="at">chem_PC2 =</span> PC2)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ID"       "Date"     "chem_PC1" "chem_PC2"</code></pre>
+</div>
+</div>
 <p><strong>Question 2:</strong> What would have happened to these column names if you had joined <code>data2</code> and <code>data3</code> without renaming? (Try it in the Console if you are not sure.)</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> If the columns where not renamed before combining the data then they still would have been kept seperate and given extra labelling to the titles of each column in order to differentiate them (ex. would be labelled PC1.x vs PC1.y and PC2.x vs PC2.y to tell the two apart). This happens when “ID” is specficied as what infomation we would use to join the columns together. If nothing was specified for what to join the data sets by it is possible that PC1 &amp; PC2 from both data sets would try to be combined into one and result in errors.</p>
 </section>
 <section id="make-sure-date-is-a-date" class="level2">
 <h2 class="anchored" data-anchor-id="make-sure-date-is-a-date">6. Make sure <code>Date</code> is a date</h2>
 <p>Check <code>class()</code> of the <code>Date</code> column in each of the three objects. If any of them is <code>character</code>, convert it with <code>ymd()</code> from <code>lubridate</code> (Chapter 10, <em>date Objects</em>). All three must be the same class before you join, or the join will refuse to match them.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking date for data1</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data1<span class="sc">$</span>Date)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Date"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data1<span class="sc">$</span>Date) <span class="co"># ensuring the format ymd is the same for all data sets</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2022-05-03" "2021-05-27" "2022-10-15" "2022-05-06" "2022-01-20"
+[6] "2021-10-24"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking date for data2</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data2<span class="sc">$</span>Date)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Date"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data2<span class="sc">$</span>Date) <span class="co"># ensuring the format ymd is the same for all data sets</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2022-12-14" "2021-11-30" "2021-04-17" "2021-08-17" "2021-12-07"
+[6] "2021-03-22"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking date for data3</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data3<span class="sc">$</span>Date)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Date"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data2<span class="sc">$</span>Date) <span class="co"># ensuring the format ymd is the same for all data sets</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2022-12-14" "2021-11-30" "2021-04-17" "2021-08-17" "2021-12-07"
+[6] "2021-03-22"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All appear to be be classified as Date and none as Characters, no conversion necessary</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 </section>
 <section id="part-2-join-the-files" class="level1">
@@ -198,23 +372,71 @@ positpal::start("Group_3_CC3.Rmd")</code></pre>
 <h2 class="anchored" data-anchor-id="full-join-by-id-and-date">7. Full join by ID and Date</h2>
 <p>Combine the three objects into one called <code>all_data</code> with <code>full_join()</code> (Chapter 10, <em>Join Datasets</em>), matching rows that have the same <code>ID</code> <strong>and</strong> the same <code>Date</code>: <code>by = c("ID", "Date")</code>. Two joins are needed. Check the dimensions.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all_data &lt;-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initially combining data 1 and data2</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>data1data2<span class="ot">=</span><span class="fu">full_join</span>(data1, data2, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"ID"</span>, <span class="st">"Date"</span>))</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data1data2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+       ID Date         Conc invert_PC1 invert_PC2
+    &lt;dbl&gt; &lt;date&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+1 1291543 2022-05-03  3.13       2.92      -1.80 
+2 4972386 2021-05-27 12.8        1.84      -1.42 
+3 9934712 2022-10-15  0.211      0.504      2.52 
+4 2711078 2022-05-06  0.439     -1.48      -0.021
+5 8171692 2022-01-20  0.327     -0.129     -0.323
+6 7859592 2021-10-24  5.87       0.406     -2.26 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data1data2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 800   5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># combining the above with data3</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>all_data<span class="ot">=</span><span class="fu">full_join</span>(data1data2, data3, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"ID"</span>, <span class="st">"Date"</span>))</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(all_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+       ID Date         Conc invert_PC1 invert_PC2 chem_PC1 chem_PC2
+    &lt;dbl&gt; &lt;date&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 1291543 2022-05-03  3.13       2.92      -1.80    -0.974    5.38 
+2 4972386 2021-05-27 12.8        1.84      -1.42    -0.615    4.26 
+3 9934712 2022-10-15  0.211      0.504      2.52    -0.168   -7.54 
+4 2711078 2022-05-06  0.439     -1.48      -0.021    0.492    0.063
+5 8171692 2022-01-20  0.327     -0.129     -0.323    0.043    0.969
+6 7859592 2021-10-24  5.87       0.406     -2.26    -0.135    6.78 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(all_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 800   7</code></pre>
+</div>
 </div>
 </section>
 <section id="compare-the-join-verbs" class="level2">
 <h2 class="anchored" data-anchor-id="compare-the-join-verbs">8. Compare the join verbs</h2>
 <p>Using only <code>data1</code> and <code>data2</code>, report the number of rows returned by <code>inner_join()</code>, <code>left_join()</code>, <code>right_join()</code> and <code>full_join()</code> (all <code>by = c("ID", "Date")</code>). <code>nrow()</code> is enough; do not print the tables.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inner</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># left</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># right</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># full</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inner</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">inner_join</span>(data1, data2, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"ID"</span>, <span class="st">"Date"</span>))) <span class="co"># Output: 782</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 782</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># left</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">left_join</span>(data1, data2, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"ID"</span>, <span class="st">"Date"</span>))) <span class="co"># Output: 794</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 794</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># right</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">right_join</span>(data1, data2, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"ID"</span>, <span class="st">"Date"</span>))) <span class="co"># Output: 788</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 788</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># full</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">full_join</span>(data1, data2, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"ID"</span>, <span class="st">"Date"</span>))) <span class="co"># Output: 800</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 800</code></pre>
+</div>
 </div>
 <p><strong>Question 3:</strong> The four numbers differ. Explain which rows each verb keeps, and what that tells you about samples that are in one file but not the other.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> inner_join() outputs 782 meaning it only keeps the 782 rows in both files and doesn’t include rows found only in data1 or only in data2. left_join() outputs 794 meaning it keeps only all the 794 rows from data1, meaning data1 has 12 more outputs that differ from data2 (794-788). right_join() outputs 788 meaning it keeps only all the 788 rows from data2, meaning data2 has 6 more putputs that differ from data1 (788-782). full_join() outputs 800 the highest number from all the ouputs as this function keeps everything from both data1 and data2 files (To check this the sum of the outputs shared between both data sets and the outputs only one data set has should sum to 800. e.g.&nbsp;782 + 12 + 6 = 800).</p>
 </section>
 </section>
 <section id="part-3-dates-summaries-and-ordering" class="level1">
@@ -222,19 +444,74 @@ positpal::start("Group_3_CC3.Rmd")</code></pre>
 <section id="add-year-and-month" class="level2">
 <h2 class="anchored" data-anchor-id="add-year-and-month">9. Add year and month</h2>
 <p>Add a <code>Year</code> column and a <code>Month</code> column to <code>all_data</code> with <code>mutate()</code> and the <code>lubridate</code> functions <code>year()</code> and <code>month()</code> (Chapter 10, <em>Extracting Components</em>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>all_data<span class="ot">=</span> all_data <span class="sc">|&gt;</span> </span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">Year=</span><span class="fu">year</span>(Date), </span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">Month=</span><span class="fu">month</span>(Date)</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview to make sure the new Year &amp; Date columns show up</span></span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(all_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 9
+       ID Date         Conc invert_PC1 invert_PC2 chem_PC1 chem_PC2  Year Month
+    &lt;dbl&gt; &lt;date&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 1291543 2022-05-03  3.13       2.92      -1.80    -0.974    5.38   2022     5
+2 4972386 2021-05-27 12.8        1.84      -1.42    -0.615    4.26   2021     5
+3 9934712 2022-10-15  0.211      0.504      2.52    -0.168   -7.54   2022    10
+4 2711078 2022-05-06  0.439     -1.48      -0.021    0.492    0.063  2022     5
+5 8171692 2022-01-20  0.327     -0.129     -0.323    0.043    0.969  2022     1
+6 7859592 2021-10-24  5.87       0.406     -2.26    -0.135    6.78   2021    10</code></pre>
+</div>
+</div>
 </section>
 <section id="summarise-concentration-by-year" class="level2">
 <h2 class="anchored" data-anchor-id="summarise-concentration-by-year">10. Summarise concentration by year</h2>
 <p>Use <code>group_by()</code> and <code>summarise()</code> (Chapter 10, <em>summarise() + group_by()</em>) to calculate the mean and standard deviation of <code>Conc</code> for each <code>Year</code>. Remember <code>na.rm = TRUE</code> (Chapter 10, <em>NA and na.rm()</em>). Save the result as <code>year_summary</code> and print it.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># year_summary &lt;-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>year_summary <span class="ot">=</span> all_data<span class="sc">|&gt;</span> </span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Year) <span class="sc">|&gt;</span> </span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">mean_conc=</span><span class="fu">mean</span>(Conc, <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">sd_conc=</span><span class="fu">sd</span>(Conc, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out the results</span></span>
+<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a>year_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+   Year mean_conc sd_conc
+  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+1  2021    10.2      6.14
+2  2022     0.964    1.46</code></pre>
+</div>
 </div>
 <p><strong>Question 4:</strong> Does concentration differ between the two years? Answer in one or two sentences from the table.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> Yes the concentration differs between the years 2021 and 2022. They appear to differ significantly given the mean for 2021 is 10.2 vs for 2022 which is 0.964. The standard deviation also supports this observations, for the year 2021 the sd is 6.14 and for 2022 it is 1.46. It is likely the year 2022 has more negative concentration values whereas the year 2021 likely has more positive concentrations. The below code also supports this predicition showing the 5 highest concentrations are all from the year 2021.</p>
 </section>
 <section id="the-five-highest-concentrations" class="level2">
 <h2 class="anchored" data-anchor-id="the-five-highest-concentrations">11. The five highest concentrations</h2>
 <p>Use <code>arrange()</code> with <code>desc()</code> (Chapter 10, <em>arrange() Rows</em>) and <code>select()</code> (Chapter 10, <em>select() Columns</em>) to show the five samples with the highest <code>Conc</code>, with only the <code>ID</code>, <code>Year</code> and <code>Conc</code> columns. Pipe the steps together with <code>%&gt;%</code> (Chapter 10, <em>%&gt;%</em>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>top_five<span class="ot">=</span> all_data <span class="sc">|&gt;</span> </span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(Conc)) <span class="sc">|&gt;</span> </span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(ID, Year, Conc) <span class="sc">|&gt;</span> </span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>(<span class="dv">5</span>)</span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results</span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>top_five</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+       ID  Year  Conc
+    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 9050729  2021  36.4
+2 1829307  2021  34.9
+3 1290775  2021  31.8
+4 6739807  2021  27.4
+5 9456994  2021  27.2</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="part-4-reshape" class="level1">
@@ -243,18 +520,86 @@ positpal::start("Group_3_CC3.Rmd")</code></pre>
 <h2 class="anchored" data-anchor-id="wide-to-long">12. Wide to long</h2>
 <p>Starting from <code>all_data</code>, the four measurement columns you renamed in Section 5 (e.g.&nbsp;<code>micro_PC1</code>, <code>micro_PC2</code>, <code>urine_PC1</code>, <code>urine_PC2</code>) are in <em>wide</em> format. Use <code>pivot_longer()</code> (Chapter 10, <em>pivot_longer</em>) on <code>all_data</code> to stack those four columns into two, <code>Measure</code> (which column the value came from) and <code>Score</code> (the value). Save the result as <code>long_data</code> and check it with <code>head()</code> and <code>dim()</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># long_data &lt;-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>long_data<span class="ot">=</span> all_data <span class="sc">|&gt;</span> </span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">cols=</span><span class="fu">c</span>(invert_PC1, invert_PC2, chem_PC1, chem_PC2), </span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">names_to=</span><span class="st">"Measure"</span>, </span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">values_to=</span><span class="st">"Score"</span></span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect long_data</span></span>
+<span id="cb67-9"><a href="#cb67-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(long_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+       ID Date        Conc  Year Month Measure     Score
+    &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;
+1 1291543 2022-05-03  3.13  2022     5 invert_PC1  2.92 
+2 1291543 2022-05-03  3.13  2022     5 invert_PC2 -1.80 
+3 1291543 2022-05-03  3.13  2022     5 chem_PC1   -0.974
+4 1291543 2022-05-03  3.13  2022     5 chem_PC2    5.38 
+5 4972386 2021-05-27 12.8   2021     5 invert_PC1  1.84 
+6 4972386 2021-05-27 12.8   2021     5 invert_PC2 -1.42 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(long_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3200    7</code></pre>
+</div>
 </div>
 <p>Now use <code>long_data</code> to draw histograms of <code>Score</code> with <code>facet_wrap()</code> so that each <code>Measure</code> gets its own panel (Chapter 4 and Chapter 7). Choose a sensible <code>binwidth</code>, add axis labels and a title, and use <code>theme_classic()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Was getting an error and the Chatbot advised the Score might be a character instead of a numerical value. </span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Used mutate to convert the Score to a numerical value</span></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> long_data <span class="sc">|&gt;</span></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score =</span> <span class="fu">as.numeric</span>(Score))</span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>long_data, <span class="fu">aes</span>(<span class="at">x=</span>Score)) <span class="sc">+</span></span>
+<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="fl">0.5</span>, <span class="at">colour=</span><span class="st">"black"</span>, <span class="at">fill=</span><span class="st">"skyblue"</span>) <span class="sc">+</span> </span>
+<span id="cb71-8"><a href="#cb71-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>Measure) <span class="sc">+</span> </span>
+<span id="cb71-9"><a href="#cb71-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb71-10"><a href="#cb71-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">title=</span><span class="st">"Distribution of Measurement Scores"</span>, </span>
+<span id="cb71-11"><a href="#cb71-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Score"</span>, </span>
+<span id="cb71-12"><a href="#cb71-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Count"</span></span>
+<span id="cb71-13"><a href="#cb71-13" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span> </span>
+<span id="cb71-14"><a href="#cb71-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 63 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Group_3_CC3_files/figure-html/score-histograms-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="long-to-wide" class="level2">
 <h2 class="anchored" data-anchor-id="long-to-wide">13. Long to wide</h2>
 <p>Each <code>ID</code> was sampled once in each year. Starting from <code>all_data</code>, <code>select()</code> only <code>ID</code>, <code>Year</code> and <code>Conc</code>, then use <code>pivot_wider()</code> (Chapter 10, <em>pivot_wider</em>) so that there is one row per <code>ID</code> with a column for each year. Save it as <code>wide_conc</code>. Then add a <code>Change</code> column equal to the second year minus the first (column names that start with a digit must be wrapped in back-ticks, e.g.&nbsp;<code>`2022`</code>), and count how many IDs increased.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># wide_conc &lt;-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create wide_conc dataset</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>wide_conc<span class="ot">=</span> all_data <span class="sc">|&gt;</span> </span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(ID, Year, Conc) <span class="sc">|&gt;</span> </span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">names_from =</span> Year,</span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">values_from =</span> Conc</span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Change =</span> <span class="st">`</span><span class="at">2022</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">2021</span><span class="st">`</span>)</span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Count IDs with an increase (Change &gt; 0)</span></span>
+<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(wide_conc<span class="sc">$</span>Change <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count IDs with NA for Change</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(wide_conc<span class="sc">$</span>Change))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
 </div>
 <p><strong>Question 5:</strong> How many IDs have a higher concentration in the second year than in the first, and how many have <code>NA</code> for the change? Why are there NAs?</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> 19 IDs have a higher concentration in the second year than in the first. 6 IDs have NA for the change column. They are likely NAs because calculating the change requires a concentration value for both years for a given ID. If a cell is missing a value for one of the years or both subtracting the one year from the other will lead to the resulting NAs.</p>
 </section>
 </section>
 <section id="part-5-test-the-hypothesis-visually" class="level1">
@@ -262,10 +607,62 @@ positpal::start("Group_3_CC3.Rmd")</code></pre>
 <section id="pc1-against-pc2" class="level2">
 <h2 class="anchored" data-anchor-id="pc1-against-pc2">14. PC1 against PC2</h2>
 <p>Use <code>ggplot()</code> to plot <code>PC1</code> on the x-axis and <code>PC2</code> on the y-axis for <strong>one</strong> of the two measurement sets, with <code>colour = Conc</code> so that concentration is shown by colour, and <code>facet_wrap()</code> by <code>Year</code>. Include <code>theme_classic()</code>, axis labels and a title (Chapter 4 and Chapter 7). Repeat for the other measurement set if it helps you answer Question 6. A few points will be <strong>grey</strong>: those are samples with no concentration value (<code>Conc</code> is <code>NA</code> because they were not in <code>Dataset1.csv</code>), so no colour can be assigned. Ignore them when you answer Question 6, or drop them first with <code>filter(!is.na(Conc))</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out NAs and plot PC1 vs PC2 faceted by Year for the invert measurements.</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>all_data <span class="sc">|&gt;</span> </span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Conc)) <span class="sc">|&gt;</span> </span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>invert_PC1, <span class="at">y=</span>invert_PC2, <span class="at">colour=</span>Conc)) <span class="sc">+</span> </span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>Year) <span class="sc">+</span> </span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Invertebrate PC1 vs PC2 by Year"</span>, </span>
+<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Invertebrate PC1"</span>, </span>
+<span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Invertebrate PC2"</span>, </span>
+<span id="cb77-11"><a href="#cb77-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">colour =</span> <span class="st">"Concentration"</span></span>
+<span id="cb77-12"><a href="#cb77-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span> </span>
+<span id="cb77-13"><a href="#cb77-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 24 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Group_3_CC3_files/figure-html/pc-scatter-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat for the chemical measurements. </span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>all_data <span class="sc">|&gt;</span> </span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Conc)) <span class="sc">|&gt;</span> </span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> chem_PC1, <span class="at">y=</span>chem_PC2, <span class="at">colour=</span>Conc)) <span class="sc">+</span> </span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> Year) <span class="sc">+</span></span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Chemical PC1 vs PC2 by Year"</span>, </span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Chemical PC1"</span>, </span>
+<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Chemical PC2"</span>,</span>
+<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">colour =</span> <span class="st">"Concentration"</span></span>
+<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span> </span>
+<span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 19 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Group_3_CC3_files/figure-html/pc-scatter-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <p><strong>Question 6:</strong> What do the data say about the hypothesis in your scenario (patients with similar viral loads have similar gut microbes and urine metabolites, or lakes with similar arsenic levels have similar invertebrate communities and water chemistry)? Answer in a short paragraph from visual inspection of your figures. For now, assume that any strong pattern is statistically robust; later we will learn to test this with models.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> Looking at the figures created it appears that the data does not support the hypothesis. If lakes with similar arsenic levels had similar chemical/ biological communities, we would expect to see distinct colour clustering or a smooth gradient across the PC space (e.g., higher concentration points grouping together on one side and lower concentrations on the other).</p>
+<p>Instead, the points representing different concentration values (colours ranging from dark to light blue) are throughly mixed and randomly scattered throughout both the 2021 and 2022 panels. This indicates that chemical/ biological communities across PC1 and PC2 varies independetly (not dependent on arsenic concentrations).</p>
 <p><strong>Question 7:</strong> Read the scenario you did not choose. What, if anything, would you have done differently in the code? What does this tell you about coding as a transferable skill?</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> Reading the hospital scenario things I would have changed in the code are the naming for PC1 &amp; PC2 from both data2 and data3 as they represent different values/ components for the hospital scenario. Overall though these 2 different scenarios show how easily transferable coding can be. One code that you used for a certain experiement might be easily able to be used for another similar experiment.</p>
+<p>For example, you are measuring concentration of water vs salinity in marine organisms. This process might be similar enough to running the same with mammals and might also be measured using the exact same components.Therefore you might be able to use the one methods code and transfer it into the same experiment run on mammals. This type of coding helps save time if you can atleast take the skeleton of a code similar to what you need and then specify it to your specific case.</p>
 </section>
 </section>
 <section id="do-this-last" class="level1 unnumbered">
