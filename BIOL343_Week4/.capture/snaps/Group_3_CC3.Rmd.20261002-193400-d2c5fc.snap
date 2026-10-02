@@ -140,7 +140,7 @@ names(data3)
 
 **Question 2:** What would have happened to these column names if you had joined `data2` and `data3` without renaming? (Try it in the Console if you are not sure.)
 
-**Answer:** If the columns where not renamed before combining the data then they still would have been kept seperate and given extra labelling to the titles of each column in order to differentiate them (e.g. they would be labelled PC1.x vs PC1.y and PC2.x vs PC2.y to tell the two apart). This happens when "ID" is specficied as what infomation we would use to join the columns together. If nothing was specified for what to join the data sets by it is possible that PC1 & PC2 from both data sets would try to be combined into one and result in errors. 
+**Answer:** If the columns where not renamed before combining the data then they still would have been kept seperate and given extra labelling to the titles of each column in order to differentiate them (ex. would be labelled PC1.x vs PC1.y and PC2.x vs PC2.y to tell the two apart). This happens when "ID" is specficied as what infomation we would use to join the columns together. If nothing was specified for what to join the data sets by it is possible that PC1 & PC2 from both data sets would try to be combined into one and result in errors. 
 
 ## 6. Make sure `Date` is a date
 
@@ -203,10 +203,10 @@ nrow(full_join(data1, data2, by=c("ID", "Date"))) # Output: 800
 
 **Question 3:** The four numbers differ. Explain which rows each verb keeps, and what that tells you about samples that are in one file but not the other.
 
-**Answer:** inner_join() outputs 782 meaning it only keeps the 782 rows in both files and doesn't include rows found only in the data1 or only in the data2 file. 
-left_join() outputs 794 meaning it keeps only all the 794 rows from data1, meaning data1 has 12 more rows that differ from data2 (794-788). 
-right_join() outputs 788 meaning it keeps only all the 788 rows from data2, meaning data2 has 6 more rows that differ from data1 (788-782).
-full_join() outputs 800 the highest number from all the ouputs as this function keeps everything from both data1 and data2 files (To check this the sum of the rows shared between both data sets and the rows only one data set has should sum to 800. (e.g. 782 + 12 + 6 = 800)). 
+**Answer:** inner_join() outputs 782 meaning it only keeps the 782 rows in both files and doesn't include rows found only in the data1 or only in data2. 
+left_join() outputs 794 meaning it keeps only all the 794 rows from data1, meaning data1 has 12 more outputs that differ from data2 (794-788). 
+right_join() outputs 788 meaning it keeps only all the 788 rows from data2, meaning data2 has 6 more putputs that differ from data1 (788-782).
+full_join() outputs 800 the highest number from all the ouputs as this function keeps everything from both data1 and data2 files (To check this the sum of the outputs shared between both data sets and the outputs only one data set has should sum to 800. e.g. 782 + 12 + 6 = 800). 
 
 # Part 3 — Dates, summaries and ordering
 
