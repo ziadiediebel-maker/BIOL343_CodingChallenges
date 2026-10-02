@@ -318,7 +318,20 @@ wide_conc= all_data |>
         names_from = Year,
         values_from = Conc
     ) |> 
-    mutate(Change = `2022` - `2021`)
+    mutate(Change = `2022` - `2021')
+
+# Sorting the column names using the unique function to see the 2 seperate years 2021 & 2022
+#years = sort(unique(all_data$Year))
+#years # printed to see what year falls in position [1] vs [2] in the sorted vector
+# [1] = 2021 & [2] = 2022
+
+#yr1=as.character(years[1]) # yr1 represents 2021
+#yr2=as.character(years[2]) # yr2 represents 2022
+
+# Add Change column (Year 2 minus Year 1)
+#wide_conc = wide_conc |> 
+    #mutate(Change=.data[[yr2]]-.data[[yr1]])
+
 
 # Count IDs with an increase (Change > 0)
 sum(wide_conc$Change > 0, na.rm=TRUE)
@@ -344,7 +357,7 @@ all_data |>
     filter(!is.na(Conc)) |> 
     ggplot(aes(x=invert_PC1, y=invert_PC2, colour=Conc)) + 
     facet_wrap(~Year) + 
-    geom_point(size=2) +
+    geom_point(size = 2) +
     labs(
         title = "Invertebrate PC1 vs PC2 by Year", 
         x = "Invertebrate PC1", 

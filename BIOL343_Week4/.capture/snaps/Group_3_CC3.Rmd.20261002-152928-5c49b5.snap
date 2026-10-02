@@ -344,7 +344,7 @@ all_data |>
     filter(!is.na(Conc)) |> 
     ggplot(aes(x=invert_PC1, y=invert_PC2, colour=Conc)) + 
     facet_wrap(~Year) + 
-    geom_point(size=2) +
+    geom_point(size = 2) +
     labs(
         title = "Invertebrate PC1 vs PC2 by Year", 
         x = "Invertebrate PC1", 

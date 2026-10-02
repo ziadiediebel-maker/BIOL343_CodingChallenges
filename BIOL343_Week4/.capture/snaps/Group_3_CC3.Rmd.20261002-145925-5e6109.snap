@@ -293,7 +293,7 @@ Now use `long_data` to draw histograms of `Score` with `facet_wrap()` so that ea
 long_data <- long_data |>
   mutate(Score = as.numeric(Score))
 
-ggplot(data=long_data, aes(x=Score)) +
+ggplot(long_data, aes(x=Score)) +
     geom_histogram(binwidth=0.5, colour="black", fill="skyblue") + 
     facet_wrap(~Measure) + 
     labs(
@@ -311,17 +311,25 @@ Each `ID` was sampled once in each year. Starting from `all_data`, `select()` on
 
 ```{r pivot-wider}
 
-# Create wide_conc dataset
-wide_conc= all_data |> 
+# Create wide_data dataset
+wide_data= all_data |> 
     select(ID, Year, Conc) |> 
     pivot_wider(
         names_from = Year,
         values_from = Conc
-    ) |> 
-    mutate(Change = `2022` - `2021`)
+    )
+
+# Extract column names dynamically (assumes 2 distinct years)
+years = sort(unique(all_data$Year))
+yr1=as.character(years[1])
+yr2=as.character(years[2])
+
+# Add Change column (Year 2 minus Year 1)
+wide_conc = wide_conc |> 
+    mutate(Change=.data[[yr2]]-.data[[yr1]])
 
 # Count IDs with an increase (Change > 0)
-sum(wide_conc$Change > 0, na.rm=TRUE)
+sum(wide_conc$Change >0, na.rm=TRUE)
 
 # Count IDs with NA for Change
 sum(is.na(wide_conc$Change))
@@ -343,8 +351,9 @@ Use `ggplot()` to plot `PC1` on the x-axis and `PC2` on the y-axis for **one** o
 all_data |> 
     filter(!is.na(Conc)) |> 
     ggplot(aes(x=invert_PC1, y=invert_PC2, colour=Conc)) + 
+    geom_point(size = 2) +
     facet_wrap(~Year) + 
-    geom_point(size=2) +
+    scale_colour_viridis_c() + 
     labs(
         title = "Invertebrate PC1 vs PC2 by Year", 
         x = "Invertebrate PC1", 
@@ -357,8 +366,9 @@ all_data |>
 all_data |> 
     filter(!is.na(Conc)) |> 
     ggplot(aes(x = chem_PC1, y=chem_PC2, colour=Conc)) + 
+    geom_point(size=2) + 
     facet_wrap(~ Year) +
-    geom_point(size = 2) +
+    scale_colour_viridis_c() + 
     labs(
         title = "Chemical PC1 vs PC2 by Year", 
         x = "Chemical PC1", 
