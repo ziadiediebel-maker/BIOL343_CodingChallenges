@@ -347,7 +347,7 @@ all_data |>
         title = "Invertebrate PC1 vs PC2 by Year", 
         x = "Invertebrate PC1", 
         y = "Invertebrate PC2", 
-        colour = "Arsenic Concentration"
+        colour = "Concentration"
     ) + 
     theme_classic()
 
@@ -361,7 +361,7 @@ all_data |>
         title = "Chemical PC1 vs PC2 by Year", 
         x = "Chemical PC1", 
         y = "Chemical PC2",
-        colour = "Arsenic Concentration"
+        colour = "Concentration"
     ) + 
     theme_classic()
 
@@ -369,16 +369,14 @@ all_data |>
 
 **Question 6:** What do the data say about the hypothesis in your scenario (patients with similar viral loads have similar gut microbes and urine metabolites, or lakes with similar arsenic levels have similar invertebrate communities and water chemistry)? Answer in a short paragraph from visual inspection of your figures. For now, assume that any strong pattern is statistically robust; later we will learn to test this with models.
 
-**Answer:** Looking at the figures created it appears that the data does mainly support the hypothesis.
-If lakes with similar arsenic levels had similar invertebrate communities and water chemistry, we would expect to see distinct colour clustering or a smooth gradient across the PC space (e.g., higher concentration points grouping together on one side and lower concentrations on the other, going from light blue to dark blue or the other way around). When lookign at are graphs dark blue points representing low concentrations and light blue points representing high concentrations seem to intermingle with each other throughout.
+lake samples with higher concetraion are located where on the plot? How or low PC1 and PC2
+same for low.
+any patterns 2021? 
+concentration differs by year
+**Answer:** Looking at the figures created it appears that the data does not support the hypothesis.
+If lakes with similar arsenic levels had similar invertebrate communities and water chemistry, we would expect to see distinct colour clustering or a smooth gradient across the PC space (e.g., higher concentration points grouping together on one side and lower concentrations on the other, going from light blue to dark blue of the opposite). When lookign at are graphs dark blue points representing low concentrations and light blue points representing high concentrations seem to intermingle with each other throughout.
 
-2021 Invertebrate Plot: 
-High arsenic concentrations appear more frequently in the right bottom side of the graph where PC1 values are higher (in the positive range) and PC2 values are lower (in the negative range). 
-Low arsenic concentrations appear more frequently in the left top side of the graph where PC1 values are lower (in the neative range) and PC2 values are higher (in the positive range). 
-The gradient appears to move from bottom right to top left of the graph (moving from high to low concentrations). 
-
-2022 Invertebrate Plot: 
-A significant change compared to the concentrations in 2021 can be seen when looking at the plot. The majority of the points appear to cluster in the middle of the graph and seem to all be around the same colour gradient representing low arsenic concentrations. This shows that the arsenic concentration levels have decreased since 2021.
+Instead, the points representing different concentration values (colours ranging from dark to light blue) are thoroughly mixed and randomly scattered throughout both the 2021 and 2022 panels. This indicates that chemical/ biological communities across PC1 and PC2 varies independently (not dependent on arsenic concentrations). 
 
 **Question 7:** Read the scenario you did not choose. What, if anything, would you have done differently in the code? What does this tell you about coding as a transferable skill?
 
