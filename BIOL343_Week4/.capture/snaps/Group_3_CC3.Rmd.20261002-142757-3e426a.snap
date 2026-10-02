@@ -289,7 +289,6 @@ Now use `long_data` to draw histograms of `Score` with `facet_wrap()` so that ea
 
 ```{r score-histograms}
 # Was getting an error and the Chatbot advised the Score might be a character instead of a numerical value. 
-# Used mutate to convert the Score to a numerical value
 long_data <- long_data |>
   mutate(Score = as.numeric(Score))
 
