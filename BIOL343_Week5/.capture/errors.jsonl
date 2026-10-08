@@ -1,2 +1,4 @@
 {"chunk":null,"ts":"2026-10-08T15:59:49Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"Head\""}
 {"chunk":null,"ts":"2026-10-08T16:06:15Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: there is no package called ‘todyverse’"}
+{"chunk":null,"ts":"2026-10-08T16:14:26Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'self_inc' not found"}
+{"chunk":null,"ts":"2026-10-08T16:14:38Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: no applicable method for 'group_by' applied to an object of class \"character\""}

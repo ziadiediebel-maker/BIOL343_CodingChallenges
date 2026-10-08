@@ -84,7 +84,8 @@ Plot the distributions of `face_diam_mm`, with facets so that SI and SC plants a
 ```{r face-histogram, message=FALSE}
 # Importing necessary libraries
 library(tidyverse)
-ggplot(aes(x=face_diam_mm))
+
+plot1data=
 
 ```
 
