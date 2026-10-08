@@ -1,0 +1,243 @@
+---
+title: "BIOL343 Coding Challenge 4"
+author: "Group 3 - Ziadie Diebel"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#rmarkdown::render("Group_2_CC4.Rmd")
+```
+
+# BIOL343 Coding Challenge 4
+
+## Group Members
+
+```{r group_members}
+# Name - Queen's Student Number
+
+# 1. Ziadie Diebel - 20463388
+
+# 2. Member2 - Student Number
+
+# 3. Member3 - Student Number
+
+# 4. Member4 - Student Number
+
+# 5. Member5 - Student Number
+
+# 6. Member6 - Student Number
+
+```
+
+# DO THIS FIRST {-}
+
+Copy and paste this into your R Console to start positpal, but replace `FILENAME.Rmd` with the name you are going to use for the .R or .Rmd file you are going to upload (rename the template first, e.g. `Group_#_CC4.Rmd`, and use that exact name). **Do not include it as a code chunk.**
+
+```
+install.packages("remotes")
+remotes::install_url("https://quantitative.bio/downloads/positpal.tar.gz", upgrade = "never")
+positpal::start("Group_2_CC4.Rmd")
+```
+
+Before you run it: create or open an R project folder so that it is your working directory, then save this file in that folder under the name you will upload, and check that autosave is on (*File → Auto Save*). See OnQ and use the positpal chatbot if you are having trouble with positpal.
+
+# Part 1 — Import and inspect
+
+The data file is `data/AbroniaFloralData.csv`: one row per plant, from 12 coastal sites, with the mating system of the site (`self_inc`: SI or SC), the site's latitude, and four floral traits. The instructions describe the study and the two hypotheses. **Do not edit the file by hand.**
+
+## 1. Import the data
+
+Import the observations and save it as an object called `floral_data`.
+
+```{r import-data}
+
+floral_data=read.csv("data/AbroniaFloralData.csv")
+
+```
+
+## 2. Inspect the data
+
+Check the object with `dim()`, `head()`, `str()` and `summary()`. Look for the usual problems: columns of the wrong type, and missing values.
+
+```{r inspect-data}
+
+dim(floral_data)
+head(floral_data)
+str(floral_data)
+summary(floral_data)
+
+```
+
+**Question 1:** In statistical terms, what is the **statistical population** in this study, and what is the **sample**? Give one reason the sample might not be a random, unbiased sample of that population.
+
+**Answer:**
+
+# Part 2 — Distributions
+
+## 3. Plot frequency distributions
+
+Plot the distributions of `face_diam_mm`, with facets so that SI and SC plants are in separate panels. Choose an appropriate `binwidth` that shows the shape of the data distribution, add axis labels with units and a title, and use a 'clean' theme suitable for publication. Then do the same for `flower_number`, with `binwidth = 1`. If R prints a message about `bins = 30`, you have not set the binwidth; the chunk option `message=FALSE` (already set on these chunks) hides messages like that in the knitted file.
+
+```{r face-histogram, message=FALSE}
+# Importing necessary libraries
+library(tidyverse)
+
+# Histogram for face diameter (face_diam_mm)
+ggplot(data=floral_data, aes(x=face_diam_mm)) + geom_histogram(binwidth=2, colour="black", fill="skyblue") + facet_wrap(~self_inc) +
+    labs(
+        x = "Face Diameter (mm)", 
+        y = "Count", 
+        title = "Distribution of face diameter by self_inc"
+    ) + 
+    theme_classic()
+
+```
+
+
+```{r flower-histogram, message=FALSE}
+
+# Histogram for Flower Number (flower_number)
+ggplot(data=floral_data, aes(x=flower_number)) + geom_histogram(binwidth=2, colour="black", fill="pink") + facet_wrap(~self_inc) +
+    labs(
+        x = "Number of Flowers", 
+        y = "Count", 
+        title = "Distribution of flower number by self_inc"
+    ) + 
+    theme_classic()
+
+```
+
+**Question 2:** Of the three common population distributions (Gaussian, Poisson, binomial), which one is the best model for `face_diam_mm`, and which for `flower_number`? Explain with respect to the *type* of data as well as the shape of the histogram.
+
+**Answer:**
+
+## 4. Mean, standard deviation and coefficient of variation
+
+Make two vectors, `SI` and `SC`, containing the face diameters of the SI plants and of the SC plants. For **each** vector, calculate the sample size, the mean, the standard deviation, and the coefficient of variation. 
+
+```{r metrics}
+
+# Vector for face_diam_mm
+SI=floral_data$face_diam_mm[floral_data$self_inc == "SI"]
+SC=floral_data$face_diam_mm[floral_data$self_inc == "SC"]
+
+# Calculate metrics for SI
+samplesize_SI = length(SI)
+mean_SI = mean(SI, na.rm = TRUE)
+sd_SI = sd(SI, na.rm = TRUE)
+coeffvar_SI = (sd_SI / mean_SI) * 100
+
+# Calculate metrics for SC
+samplesize_SC = length(SC)
+mean_SC = mean(SC, na.rm = TRUE)
+sd_SC = sd(SC, na.rm = TRUE)
+coeffvar_SC = (sd_SC / mean_SC) * 100
+
+# Print Results
+
+```
+
+**Question 3:** The two standard deviations are very different, but the two coefficients of variation are almost the same. What does that tell you about how variation in flower size relates to mean flower size?
+
+**Answer:**
+
+## 5. Trait means by mating system and by site
+
+Report the sample size and the mean of each of the four traits for SI and for SC plants, using `dplyr` commands. One trait has missing values, so the code must handle `NA`.
+
+```{r trait-means}
+traitsummary= floral_data |> 
+```
+
+Now make a second summary with one row per site: the site's mating system, its latitude, the number of plants and the mean face diameter. Then plot mean face diameter (y) against latitude (x), one point per site, coloured by mating system, with axis labels with units, a legend title and a clean theme.
+
+```{r site-means}
+
+```
+
+```{r face-vs-latitude}
+
+```
+
+**Question 4:** Do the four traits differ between SI and SC plants in the direction predicted by the second hypothesis in the instructions? Which trait shows the largest relative difference?
+
+**Answer:**
+
+# Part 3 — From the sample to the population
+
+## 6. Standard error and confidence interval
+
+For `SI` and for `SC`, calculate the standard error of the mean and the 95% confidence interval **from the equations**: $SE = s / \sqrt{n}$ and $CI = \bar x \pm 1.96 \times SE$. Print both intervals.
+
+```{r se-ci}
+
+```
+
+**Question 5:** What does each confidence interval represent? Do the two intervals overlap, and what does that suggest about the two populations?
+
+**Answer:**
+
+## 7. The central limit theorem
+
+Set the seed with `set.seed(343)`. Use `sample()` to draw a random sub-sample of 10 plants from `SI`, then one of 100, then one of 500. For each sub-sample report the mean, the standard deviation and the width of the 95% confidence interval (upper limit minus lower limit), and compare them with the values for all 866 SI plants from Sections 4 and 6.
+
+```{r clt}
+set.seed(343)
+
+```
+
+**Question 6:** As the sub-sample grows, which of the three numbers stays roughly where it is and which one shrinks? Explain why (hint: How does this relate to the standard error?)
+
+**Answer:**
+
+# Part 4 — Probability and tests
+
+## 8. Z-scores and probability
+
+Convert `SI` to z-scores and plot a histogram of them. Then convert the **mean of the SC plants** to a z-score relative to the SI sample (subtract the SI mean, divide by the SI standard deviation), and use `pnorm()` to calculate the probability of drawing a plant with a face diameter that small **or smaller** from the SI population.
+
+```{r z-scores, message=FALSE}
+
+```
+
+**Question 7:** Is this a one-tailed or a two-tailed question, and why? What does the probability say about whether SC flowers are simply small SI flowers?
+
+**Answer:**
+
+## 9. Two-sample *t*-test
+
+Test whether SI and SC plants differ in face diameter with a t-test. Report *t*, the degrees of freedom, the p-value and the 95% confidence interval of the difference. Then calculate *t* yourself from the two-sample equation, $t = (\bar x - \bar y) / \sqrt{SE_x^2 + SE_y^2}$, using the standard errors from Section 6, and check that it matches.
+
+```{r t-test}
+
+```
+
+**Question 8:** Every statistical test has assumptions. Name two assumptions of the *t*-test and say, in one sentence each, whether you think the *Abronia* data meet them.
+
+**Answer:**
+
+## 10. Face diameter against tube length
+
+Plot `tube_length_mm` (y) against `face_diam_mm` (x), coloured by `self_inc`, with axis labels with units, a legend title, and a clean theme. Give the figure a caption with the chunk option `fig.cap = "..."`, and hide the code with `echo = FALSE` so that only the figure and its caption appear in the knitted document.
+
+```{r face-vs-tube, echo=FALSE, fig.cap="Write your caption here."}
+
+```
+
+**Question 9:** Using everything above — the site plot in Section 5, the trait means, the *t*-test and this figure — what do the data say about the two hypotheses in the instructions? Answer in a short paragraph.
+
+**Answer:**
+
+# DO THIS LAST {-}
+
+When your document is finished, knit it, open the `.html` in a web browser and **print it to PDF** (*File → Print → Save as PDF*; name it `Group_#_CC4.pdf`). Then copy and paste this into the R Console to stop positpal and create your coding log. **Do not include it as a code chunk.**
+
+```
+positpal::stop_capture()
+positpal::export_capture()
+```
+
+`export_capture()` prints the name and location of the `my-capture-YYYYMMDD-HHMMSS.zip` it creates beside this file. **Each group member** uploads their own `.zip` to the **"CC4 — Coding Log (individual)"** dropbox on OnQ; the group's `.Rmd` and the **`.pdf`** (not the `.html` — OnQ shows uploaded HTML as source code, not as a page) go to your section's **TUT02-CC4** or **TUT03-CC4** folder. Submissions without the log are incomplete. If `export_capture()` fails, zip the `.capture` folder yourself and upload that instead.

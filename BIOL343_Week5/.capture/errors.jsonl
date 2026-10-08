@@ -2,3 +2,37 @@
 {"chunk":null,"ts":"2026-10-08T16:06:15Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: there is no package called ‘todyverse’"}
 {"chunk":null,"ts":"2026-10-08T16:14:26Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'self_inc' not found"}
 {"chunk":null,"ts":"2026-10-08T16:14:38Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: no applicable method for 'group_by' applied to an object of class \"character\""}
+{"chunk":null,"ts":"2026-10-08T17:22:51Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-08T17:23:00Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'self_inc' not found"}
+{"chunk":null,"ts":"2026-10-08T17:23:23Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'self_inc' not found"}
+{"chunk":null,"ts":"2026-10-08T17:23:39Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: argument \"facets\" is missing, with no default"}
+{"chunk":null,"ts":"2026-10-08T17:26:21Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'self_inc' not found"}
+{"chunk":null,"ts":"2026-10-08T17:54:33Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'abronia' not found"}
+{"chunk":null,"ts":"2026-10-08T18:18:58Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-08T18:19:08Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'trait_summary' not found"}
+{"chunk":null,"ts":"2026-10-08T18:28:50Z","pid":7494,"engine":"r","severity":"warning","render":false,"warning":"## Warning: \u001b[1m\u001b[22mIgnoring unknown parameters: `sze`"}
+{"chunk":null,"ts":"2026-10-08T18:28:50Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: \u001b[1m\u001b[22mProblem while computing aesthetics.\n\u001b[36mℹ\u001b[39m Error occurred in the 1st layer.\n\u001b[1mCaused by error:\u001b[22m\n\u001b[33m!\u001b[39m object 'latitude_N' not found"}
+{"chunk":null,"ts":"2026-10-08T18:29:39Z","pid":7494,"engine":"r","severity":"warning","render":false,"warning":"## Warning: \u001b[1m\u001b[22mIgnoring unknown parameters: `sze`"}
+{"chunk":null,"ts":"2026-10-08T18:29:39Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: \u001b[1m\u001b[22mProblem while computing aesthetics.\n\u001b[36mℹ\u001b[39m Error occurred in the 1st layer.\n\u001b[1mCaused by error:\u001b[22m\n\u001b[33m!\u001b[39m object 'mean_face_diam' not found"}
+{"chunk":null,"ts":"2026-10-08T18:29:47Z","pid":7494,"engine":"r","severity":"warning","render":false,"warning":"## Warning: \u001b[1m\u001b[22mIgnoring unknown parameters: `sze`"}
+{"chunk":null,"ts":"2026-10-08T18:29:47Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: \u001b[1m\u001b[22mProblem while computing aesthetics.\n\u001b[36mℹ\u001b[39m Error occurred in the 1st layer.\n\u001b[1mCaused by error:\u001b[22m\n\u001b[33m!\u001b[39m object 'latitude_N' not found"}
+{"chunk":null,"ts":"2026-10-08T18:30:13Z","pid":7494,"engine":"r","severity":"warning","render":false,"warning":"## Warning: \u001b[1m\u001b[22mIgnoring unknown parameters: `sze`"}
+{"chunk":null,"ts":"2026-10-08T18:55:20Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'sub_500_sd' not found"}
+{"chunk":null,"ts":"2026-10-08T18:55:27Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'sub_500_samplesize' not found"}
+{"chunk":null,"ts":"2026-10-08T20:08:30Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'total' not found"}
+{"chunk":null,"ts":"2026-10-08T20:08:51Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: invalid 'size' argument"}
+{"chunk":null,"ts":"2026-10-08T21:32:19Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-08T21:32:28Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-08T21:32:39Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-08T21:33:13Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-08T21:33:44Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-08T21:34:53Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'sub_10_samplesize' not found"}
+{"chunk":null,"ts":"2026-10-08T21:35:17Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'sub_10_ciwdith' not found"}
+{"chunk":null,"ts":"2026-10-08T21:46:44Z","pid":7494,"engine":"r","severity":"warning","render":false,"warning":"## Warning: \u001b[1m\u001b[22mIgnoring unknown parameters: `bindwidth`"}
+{"chunk":null,"ts":"2026-10-08T21:46:45Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'z_sc_mean' not found"}
+{"chunk":null,"ts":"2026-10-08T21:46:54Z","pid":7494,"engine":"r","severity":"warning","render":false,"warning":"## Warning: \u001b[1m\u001b[22mIgnoring unknown parameters: `bindwidth`"}
+{"chunk":null,"ts":"2026-10-08T21:46:54Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: invalid printing digits 0"}
+{"chunk":null,"ts":"2026-10-08T21:47:02Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: invalid printing digits 0"}
+{"chunk":null,"ts":"2026-10-08T21:59:13Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'se_SC' not found"}
+{"chunk":null,"ts":"2026-10-08T21:59:50Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'SC_sd' not found"}
+{"chunk":null,"ts":"2026-10-08T21:59:50Z","pid":7494,"engine":"r","severity":"error","render":false,"text":"## Error: object 'se_SC' not found"}
