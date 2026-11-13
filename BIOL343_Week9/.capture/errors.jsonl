@@ -38,3 +38,5 @@
 {"chunk":null,"ts":"2026-11-13T19:55:41Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'dist.mnland' not found"}
 {"chunk":null,"ts":"2026-11-13T20:01:53Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'dist.mnland' not found"}
 {"chunk":null,"ts":"2026-11-13T20:17:03Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected '<'"}
+{"chunk":null,"ts":"2026-11-13T20:30:45Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'island' not found"}
+{"chunk":null,"ts":"2026-11-13T20:31:07Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'island' not found"}

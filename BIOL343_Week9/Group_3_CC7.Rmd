@@ -66,6 +66,11 @@ library(lmtest)
 
 islands= read.csv("islands.csv")
 
+
+# Transformation 
+islands$area= log10(islands$area)
+islands$elev= log10(islands$elev)
+
 # Inspecting data
 head(islands)
 colSums(is.na(islands))
@@ -323,7 +328,7 @@ ggplot(islands, aes(x= elev)) +
 **Question 7:** Which variables did you transform, and what in the plots told you to? Compare the untransformed and transformed results: what changed in the fit of the models, in which model AIC, AICc and BIC choose, and in your conclusion about soil types? How long did it take to redo the whole analysis, and what would it have taken if you had done each step by hand (for example, copying numbers into a spreadsheet or typing them into your answers)?
 
 **Answer:**
-
+I transformed area and elevation and the overall plots before being very right-skewed suggested they needed to be transformed. The overall analysis didn't take long to complete, after the code for the transformation was added all I had to do was re-run the previous existed ggplot() codes to create the graphs. It would have taken much lonfer to do each step hand by hand and would have been very tedious, doing each step one by one would also increase the likelihood of running into small human errors. 
 
 
 # DO THIS LAST {-}
