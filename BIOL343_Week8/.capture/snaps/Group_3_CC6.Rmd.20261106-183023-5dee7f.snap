@@ -1,0 +1,268 @@
+---
+title: "BIOL343 Coding Challenge 6: Interactions, collinearity and false positives"
+author: "Group # — names and student numbers in the chunk below"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output:
+  html_document:
+    toc: true
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Group Members {-}
+
+```{r group_members}
+# Name - Queen's Student Number
+
+# 1. Ziadie Diebel - 20463388
+
+# 2. Member 2 - Student ID
+
+# 3. Member 3 - Student ID
+
+# 4. Member 4 - Student ID
+
+```
+
+# DO THIS FIRST {-}
+
+Copy and paste these two lines into your R Console to install the current positpal, then **restart R** (*Session → Restart R*, or the restart button in the Console) before anything else. **Do not include them as a code chunk.**
+
+```
+install.packages("remotes")
+remotes::install_url("https://quantitative.bio/downloads/positpal.tar.gz", upgrade = "never")
+```
+
+After the restart, paste this line, replacing `FILENAME.Rmd` with the name you are going to use for the .R or .Rmd file you are going to upload (rename the template first, e.g. `Group_#_CC6.Rmd`, and use that exact name):
+
+```
+positpal::start("FILENAME.Rmd")
+```
+
+Before you run it: create or open an R project folder for this challenge so that it is your working directory, then save this file in that folder under the name you will upload, and check that autosave is on (*File → Auto Save*). Closing the laptop or quitting Positron does not lose your log: when you reopen the project folder, positpal picks up where you left off and says so in the Console after your first command. **Every time you open Positron to work on this file, run the `start()` line again**, even if positpal says it picked up where you left off; it continues the same log and never erases it. See OnQ and use the positpal chatbot if you are having trouble with positpal.
+
+# Part 1 — Import and inspect {-}
+
+The data file is `data/loosestrife.csv`: one row per stand of purple loosestrife (*Lythrum salicaria*) in Ontario, with the region, whether *Galerucella* beetles were released there, the site's latitude and longitude, three measures of the plants, and the mean beetle damage index. The instructions describe the study, the variables and the three hypotheses. **Do not edit the file by hand.**
+
+Last week you fitted models with one or two predictors that act *additively*. This week you will let predictors interact, see what happens when two predictors carry the same information, and count how often a test can be wrong.
+
+As in earlier challenges, the tasks tell you **what** to produce, not which function to use. The starter lines in some chunks are commented out so that the blank template knits; remove the `#` as you fill them in.
+
+# Import and inspect the data
+
+Import the data as an object called `lythrum` and check its structure. Then use `dplyr` to keep only the **Central** and **East** sites, save the result as `lythrum_ce`, and count the sites in each combination of region and release. Use `lythrum_ce` for the rest of the challenge.
+
+```{r import-data}
+
+library(tidyverse)
+
+# Import and inspect data
+lythrum= read.csv("data/loosestrife.csv")
+head(lythrum)
+
+# Filter for Central and East sites only
+lythrum_ce= lythrum |> 
+  filter(region %in% c("Central", "East"))
+
+# Count sites in each combination of region and release
+lythrum_ce |> 
+  count(region, release)
+
+```
+
+**Question 1:** How many sites are in each of the four combinations of region and release? Why might the small number of release sites be a problem when you test region and release in the same model?
+
+**Answer:**
+In the Central region, there are 17 non-release sites and 3 release sites. In the East region, there are 14 non-release sites and 4 release sites, totaling to 38 sites in both region and for non-release vs release sites.
+Having so few release sites is a problem because it gives the statistical model very low statistical power. 
+This makes standard errors much larger, which means it is very hard to detect real differences between groups. 
+In addition, when sample sizes are that small, a single unusual data point can pull the group average in one direction, and the model becomes much more sensitive to violations of equal variance.
+
+
+# Part 2 — Interaction terms {-}
+
+# Two categorical predictors
+
+Draw a boxplot of damage by region, filled by release, with axis labels and a clean theme. Calculate the mean damage of each of the four region × release groups. Then fit a linear model of damage with region, release **and their interaction** as predictors, and print the summary and the ANOVA table.
+
+```{r two-categorical}
+
+# Boxplot of damage by region, filled by release
+ggplot(lythrum_ce, aes(x= region, y= damage, fill= release)) + 
+  geom_boxplot() +
+  labs(
+    x= "Region", 
+    y= "mean beetle damage index", 
+    fill= "Release status"
+  ) + 
+  theme_classic()
+
+# Mean damage for each of the four region x release groups
+group_means= lythrum_ce |> 
+  group_by(region, release) |> 
+  summarize(mean_damage= mean(damage, na.rm= TRUE), .groups= "drop")
+group_means
+
+# Fit linear model with interaction and print summary + ANOVA table
+int_mod= lm(damage ~ region * release, data= lythrum_ce)
+summary(int_mod)
+anova(int_mod)
+
+```
+
+**Question 2:** Using only the estimates in the summary, calculate the mean damage of each of the four groups, and check them against the four group means you calculated at the start of this task. Is the interaction positive (synergistic) or negative (antagonistic), and is it significant? What do you conclude about hypotheses 1 and 2?
+
+**Answer:**
+Using the model summary where Central and Nonrelease are the baselines, the mean damage for Central non-release sites is the intercept alone, which is 2.202. 
+For East non-release sites, we add the release slope to get 2.202 + 1.146 = 3.348. 
+Finally for East release sites, we add all terms including the interaction to get 2.202 + 0.168 + 1.146 - 0.614 = 2.901. 
+These match the calculated group means exactly. The interaction term is negative at -0.614, meaning it is antagonistic because the boost in damage from releasing beetles is smaller in the East than in Central Ontario. However, this interaction is not statistically significant because the p-value is 0.417. Based on this, we do not support Hypothesis 1 because damage does not significantly differ between regions (p = 0.603), but we do support Hypothesis 2 because releasing beetles significantly increase plant damage
+
+These match the calculated group means
+
+
+# A continuous and a categorical predictor
+
+Plot damage (y) against latitude (x), coloured by release, with a fitted straight line for each release group, axis labels with units, a legend title and a clean theme. Then fit a linear model of damage with latitude, release and their interaction as predictors, and print the summary and the ANOVA table.
+
+```{r continuous-categorical, message=FALSE}
+
+# Scatterplot of damage vs. latitude colored by release with fitted lines
+ggplot(lythrum_ce, aes(x= latitude, y= damage, colour= release)) +
+  geom_point(size=2, alpha=0.8) + 
+  geom_smooth(method= "lm", se= FALSE) + 
+  labs(
+    x= "Latitude (N)", 
+    y= "Mean beetle damage index", 
+    colour= "Release status"
+  ) + 
+  theme_classic()
+
+# Fit linear model with interaction and print summary and ANOVA table
+lat_mod= lm(damage ~ latitude * release, data= lythrum_ce)
+summary(lat_mod)
+anova(lat_mod)
+
+```
+
+**Question 3:** Write the fitted equation (intercept and slope) for the non-release sites and for the release sites. What does the interaction estimate mean in this model? Is there evidence that the slope of damage against latitude differs between release and non-release sites?
+
+**Answer:**
+
+# Part 3 — Collinearity {-}
+
+# Region and longitude
+
+Plot longitude by region. Calculate the correlations among the five continuous columns (latitude, longitude and the three plant measures). Then fit three linear models of damage: one with region as the only predictor, one with longitude as the only predictor, and one with both, and print the three summaries.
+
+```{r collinearity}
+
+# Plot longitude by region
+ggplot(lythrum_ce, aes(x= region, y= longitude, fill= region)) +
+  geom_boxplot(show.legend= FALSE) +
+  labs(
+    x= "Region", 
+    y= "Longitude (degrees W)"
+  ) + 
+  theme_classic()
+
+# Correlations among the five continuous columns
+lythrum_ce |> 
+  select(latitude, longitude, stemsper50m2, stemheight_cm, inflorescences) |> 
+  cor(use= "complete.obs") |> 
+  round(3)
+
+# Three linear models
+m_reg= lm(damage ~ region, data= lythrum_ce)
+m_lon= lm(damage ~ longitude, data= lythrum_ce)
+m_both= lm(damage ~ region + longitude, data= lythrum_ce)
+
+summary(m_reg)
+summary(m_lon)
+summary(m_both)
+
+
+```
+
+**Question 4:** Which two predictors are collinear, and why would you expect that from how the regions are defined? Does your correlation table show it? Compare the estimates, standard errors and *p*-values for region and longitude across the three models. Why does the model with both predictors find "significant" effects that neither predictor shows alone? Which predictor would you keep, and why?
+
+**Answer:**
+
+# Part 4 — False positives and model accuracy {-}
+
+# Three tests of hypothesis 3
+
+Hypothesis 3 says that beetle damage reduces the abundance of the plant and changes its growth form. Fit three linear models, one for each plant measure (stem density, stem height and inflorescences) as the response, each with damage as the only predictor, and print the three summaries.
+
+```{r three-tests}
+
+# Fit separate linear models for each plant response
+m_dens= lm(stemsper50m2 ~ damage, data= lythrum_ce)
+m_height= lm(stemheight_cm ~ damage, data= lythrum_ce)
+m_infl= lm(inflorescences ~ damage, data= lythrum_ce)
+
+summary(m_dens)
+summary(m_height)
+summary(m_infl)
+
+```
+
+**Question 5:** Do any of the three models support hypothesis 3? Suppose damage had no effect at all on any of the three measures. What is the probability that at least one of three independent tests gives *p* < 0.05 by chance? What does that mean for a study that tests many responses or many predictors?
+
+**Answer:**
+
+# How good is a quick field check?
+
+A manager suggests a cheap way to tell whether beetles were released at a site without checking the records: call it a release site if its damage index is **3 or more**. Add a column to `lythrum_ce` with this prediction, and make a table of the predicted against the actual release status. Treating "release" as a positive result, count the true positives, false positives, true negatives and false negatives, and calculate the accuracy, sensitivity, specificity and false discovery rate of the check.
+
+```{r accuracy}
+
+# Predict release status based on damage threshold >= 3
+lythrum_ce= lythrum_ce |> 
+  mutate(pred_release = if_else(damage >= 3, "Release", "Nonrelease"))
+
+# Confusion matrix: Predicted (rows) vs Actual (columns)
+conf_matrix= table(
+  Predicted= lythrum_ce$pred_release, 
+  Actual= lythrum_ce$release
+)
+conf_matrix
+
+# Extract classification counts (Release is the positive condition)
+TP= conf_matrix["Release", "Release"]
+FP= conf_matrix["Release", "Nonrelease"]
+TN= conf_matrix["Nonrelease", "Nonrelease"]
+FN= conf_matrix["Nonrelease", "Release"]
+
+# Calculate performance metrics
+accuracy= (TP + TN)/ (TP + FP + TN + FN)
+sensitivity= TP / (TP + FN)
+specificity= TN / (TN + FP)
+fdr= FP / (TP + FP)
+
+# Summary table
+tibble(
+  Metric= c("Accuracy", "Sensitivity", "Specificity", "False Discovery Rate (FDR)"),
+  Value= round(c(accuracy, sensitivity, specificity, fdr), 4)
+)
+
+```
+
+**Question 6:** Report the four rates. Why is the false discovery rate so much higher than you might expect from the accuracy? If the manager's goal is to find **every** release site so that it can be monitored, should the check be more sensitive or more specific, and which way would you move the threshold of 3?
+
+**Answer:**
+
+# DO THIS LAST {-}
+
+When your document is finished, knit it, open the `.html` in a web browser and **print it to PDF** (*File → Print → Save as PDF*; name it `Group_#_CC6.pdf`). Then copy and paste this into the R Console to stop positpal and create your coding log. **Do not include it as a code chunk.**
+
+```
+positpal::stop_capture()
+positpal::export_capture()
+```
+
+`export_capture()` prints the name and location of the `my-capture-YYYYMMDD-HHMMSS.zip` it creates beside this file. **Each group member** uploads their own `.zip` to the **"CC6 — Coding Log (individual)"** dropbox on OnQ; the group's `.Rmd` and the **`.pdf`** (not the `.html` — OnQ shows uploaded HTML as source code, not as a page) go to your section's **TUT02-CC6** or **TUT03-CC6** folder. Submissions without the log are incomplete. If `export_capture()` fails, zip the `.capture` folder yourself and upload that instead.

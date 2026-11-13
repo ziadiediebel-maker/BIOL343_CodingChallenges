@@ -1,0 +1,40 @@
+{"chunk":null,"ts":"2026-11-12T20:56:15Z","pid":13968,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected '='"}
+{"chunk":null,"ts":"2026-11-12T20:56:37Z","pid":13968,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"Summarise\""}
+{"chunk":null,"ts":"2026-11-13T13:31:07Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'year.isol' not found"}
+{"chunk":null,"ts":"2026-11-13T13:31:23Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'year.deglac' not found"}
+{"chunk":null,"ts":"2026-11-13T14:22:30Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"anove\""}
+{"chunk":null,"ts":"2026-11-13T14:40:18Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"lrtest\""}
+{"chunk":null,"ts":"2026-11-13T14:41:45Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: namespace found within global environments"}
+{"chunk":null,"ts":"2026-11-13T14:42:03Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"lofLik\""}
+{"chunk":null,"ts":"2026-11-13T14:42:20Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"logLike\""}
+{"chunk":null,"ts":"2026-11-13T14:42:21Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"logLike\""}
+{"chunk":null,"ts":"2026-11-13T14:42:24Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"logLike\""}
+{"chunk":null,"ts":"2026-11-13T14:42:55Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: unused argument (lower.tails = FALSE)"}
+{"chunk":null,"ts":"2026-11-13T14:43:29Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'df_diffp_lrt' not found"}
+{"chunk":null,"ts":"2026-11-13T14:44:36Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'df_diffp_lrt' not found"}
+{"chunk":null,"ts":"2026-11-13T14:44:37Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'df_diffp_lrt' not found"}
+{"chunk":null,"ts":"2026-11-13T15:40:57Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'altitude' not found"}
+{"chunk":null,"ts":"2026-11-13T15:41:05Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"AICc\""}
+{"chunk":null,"ts":"2026-11-13T15:42:09Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"AICc\""}
+{"chunk":null,"ts":"2026-11-13T15:50:05Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'sil.types' not found"}
+{"chunk":null,"ts":"2026-11-13T15:50:19Z","pid":25211,"engine":"r","severity":"warning","render":false,"warning":"## Warning: models are not all fitted to the same number of observations"}
+{"chunk":null,"ts":"2026-11-13T15:50:19Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'soil_mod_clean' not found"}
+{"chunk":null,"ts":"2026-11-13T15:50:25Z","pid":25211,"engine":"r","severity":"warning","render":false,"warning":"## Warning: models are not all fitted to the same number of observations"}
+{"chunk":null,"ts":"2026-11-13T17:23:06Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-11-13T17:23:50Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-11-13T17:23:52Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-11-13T17:24:46Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-11-13T17:25:28Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-11-13T18:26:44Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-11-13T18:57:36Z","pid":25211,"engine":"r","severity":"warning","render":false,"warning":"## Warning: models are not all fitted to the same number of observations"}
+{"chunk":null,"ts":"2026-11-13T19:31:19Z","pid":25211,"engine":"r","severity":"warning","render":false,"warning":"## Warning: models are not all fitted to the same number of observations"}
+{"chunk":null,"ts":"2026-11-13T19:37:47Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'dist.mnland' not found"}
+{"chunk":null,"ts":"2026-11-13T19:38:46Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'dist.mnland' not found"}
+{"chunk":null,"ts":"2026-11-13T19:41:25Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'dist.mnland' not found"}
+{"chunk":null,"ts":"2026-11-13T19:41:46Z","pid":25211,"engine":"r","severity":"warning","render":false,"warning":"## Warning: models are not all fitted to the same number of observations"}
+{"chunk":null,"ts":"2026-11-13T19:41:50Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'dist.mnland' not found"}
+{"chunk":null,"ts":"2026-11-13T19:46:27Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'dist.mnland' not found"}
+{"chunk":null,"ts":"2026-11-13T19:47:07Z","pid":25211,"engine":"r","severity":"warning","render":false,"warning":"## Warning: \u001b[1m\u001b[22mRemoved 4 rows containing non-finite outside the scale range (`stat_bin()`)."}
+{"chunk":null,"ts":"2026-11-13T19:55:41Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'dist.mnland' not found"}
+{"chunk":null,"ts":"2026-11-13T20:01:53Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: object 'dist.mnland' not found"}
+{"chunk":null,"ts":"2026-11-13T20:17:03Z","pid":25211,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected '<'"}

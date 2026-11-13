@@ -73,7 +73,7 @@ summary(floral_data)
 
 **Question 1:** In statistical terms, what is the **statistical population** in this study, and what is the **sample**? Give one reason the sample might not be a random, unbiased sample of that population.
 
-**Answer:**
+**Answer:** The statistical population is all individual Abronia plants growing in nature, whereas the sample if the Abronia plants specificically measured and referenced in this data set the 966. The sample might not be completely random or unbiased as they where collected from only 12 clustered sites rather and a more broad environment range. The plants sampled from the same sites share soil, climate characteristics, and genetic traits leading to them being more similar and the overall collected data lacking some of the diversity we might seen in a nature while looking at more spaced out/ diversified sites. 
 
 # Part 2 — Distributions
 
@@ -113,6 +113,11 @@ ggplot(data=floral_data, aes(x=flower_number)) + geom_histogram(binwidth=2, colo
 **Question 2:** Of the three common population distributions (Gaussian, Poisson, binomial), which one is the best model for `face_diam_mm`, and which for `flower_number`? Explain with respect to the *type* of data as well as the shape of the histogram.
 
 **Answer:**
+face_diam_mm: 
+The data in this category is a continuous measurement and has decimal values. Looking at the graphs both for SC and SI the data seems to have a bell curve shape for both. Where one bar is the mean/ most common value and the bars around it are less/ lower. These characteristics suggest that Gaussian is the best model for face_diam_mm as it is usually used for continuous data. 
+
+flower_number: 
+The data in this category appears to be a count and contains no decimal values. Looking at the graph for SC and SI the number of flowers appears to be more skewed towards the lower count of flowers, where the graph eventually decreases tappering off as the number of flowers gets higher. These characteristics suggest that Poisson is the best model for flower_number as it is usually used for count data. 
 
 ## 4. Mean, standard deviation and coefficient of variation
 
@@ -137,12 +142,22 @@ sd_SC = sd(SC, na.rm = TRUE)
 coeffvar_SC = (sd_SC / mean_SC) * 100
 
 # Print Results
+calc_summary=  data.frame(
+       SelfInc = c("SI", "SC"),
+       SampleSize = c(samplesize_SI, samplesize_SC),
+       Mean = c(mean_SI, mean_SC),
+        SD = c(sd_SI, sd_SC),
+       Coeff.Var = c(coeffvar_SI, coeffvar_SC)
+    )
+
+print(calc_summary)
 
 ```
 
 **Question 3:** The two standard deviations are very different, but the two coefficients of variation are almost the same. What does that tell you about how variation in flower size relates to mean flower size?
 
-**Answer:**
+**Answer:** 
+This tell us that flower size variation scales with relation to the average size of the flower. Though larger SI flowers have a higher sd their variability relative to their size is almost identical. Therefore bigger flowers naturally have more spread but both type show the same variation relative to their average size being smalle or larger. 
 
 ## 5. Trait means by mating system and by site
 
@@ -200,7 +215,8 @@ ggplot(data=site_summary, aes(x=latitude_N, y=mean_face_diam, colour=self_inc)) 
 
 **Question 4:** Do the four traits differ between SI and SC plants in the direction predicted by the second hypothesis in the instructions? Which trait shows the largest relative difference?
 
-**Answer:**
+**Answer:** Yes, all four traits do differ in the predicted direction. SC plants have smaller trait values across the board (smaller umbel angle, fewer flowers, smaller face diameter, and shorter tube length) compared to SI plants. 
+Face diamater shows the larger relative drecreasing, dropping by over 40% from SI to Sc plants (from 10.5mm down to 6.0mm). 
 
 # Part 3 — From the sample to the population
 
@@ -221,12 +237,23 @@ ci_lower_SC = mean_SC-1.96*se_SC
 ci_upper_SC=mean_SC + 1.96*se_SC
 
 # Print the calculation results below
+calc2_summary = data.frame(
+    SelfInc = c("SI", "SC"), 
+    StandardError = c(se_SI, se_SC), 
+    CILower = c(ci_lower_SI, ci_lower_SC),
+    CIUpper = c(ci_upper_SI, ci_upper_SC)
+)
+
+print(calc2_summary)
 
 ```
 
 **Question 5:** What does each confidence interval represent? Do the two intervals overlap, and what does that suggest about the two populations?
 
 **Answer:**
+The confidence interval represents the range of values within which we are 95% confident the true population mean face diameter lies for that self_inc (SI and SC). 
+The 2 confidence intervals do not appear to overlap (SI ranges from 10.43-10.66 and SC ranges from 5.79-6.14). 
+The following suggests that self_inc for SI and SC plants come from 2 distinct populations with significantly different average flower sizes, with the SI flowers being larger than those that are SC. 
 
 ## 7. The central limit theorem
 
@@ -287,7 +314,8 @@ print(SI_comparison)
 
 **Question 6:** As the sub-sample grows, which of the three numbers stays roughly where it is and which one shrinks? Explain why (hint: How does this relate to the standard error?)
 
-**Answer:**
+**Answer:** The mean (ranges from 10.48-10.54) and standard deviation (ranges from 1.91-1.68) appear to stay roughly where they are as the sub-sample grows. The confidence interval width (ranges from 2.36-0.23) appears to shrink dramatically. 
+The confidence interval width is dependant on the standard error calculation so as the same size n =10, 100, 500, etc. gets bigger the standard deviaition is being divided by a bigger number leading to the standard error being a smaller value. This shortens the confidence interval and leads to a more precise mean value. 
 
 # Part 4 — Probability and tests
 
@@ -312,7 +340,7 @@ ggplot(data.frame(z=SI_z), aes(x=z)) +
     
 # Calculate SC mean z-score relative to SI population
 SC_mean=mean(SC)
-z_SC_mean = (SC_mean - mean(SI)/ sd(SI))
+z_SC_mean = (SC_mean - mean(SI))/ sd(SI)
 
 # Calculate thbe probability of drawing a plant with a diameter this small or smaller 
 p_value=pnorm(z_SC_mean)
@@ -325,7 +353,7 @@ print(p_value)
 
 **Question 7:** Is this a one-tailed or a two-tailed question, and why? What does the probability say about whether SC flowers are simply small SI flowers?
 
-**Answer:**
+**Answer:** This is a one-tailed test because we are calculating the probability of drawing a plant with a face diameter thats small or smaller from the SI population, meaning we are only checking the lower tail of the curve. The probability of this happening is extremely unlikely with a p-value of 0.0034 or 0.34% since SI plants are typically larger. This also proves that SC are from a seperate smaller population versys being small SI flowers. 
 
 ## 9. Two-sample *t*-test
 
@@ -353,13 +381,20 @@ se_SC = SC_sd/ sqrt(SC_samplesize)
 t_manual = (mean_SI - mean_SC) / sqrt(se_SI^2 + se_SC^2)
 
 # summarize and print the results again
-
+t_summary = data.frame(
+    Metric = c("t-statistic", "Degrees of Freedom (df)", "p-value", "95% CI Lower", "95% CI Upper"),
+    R_t.test = c(t_val, df_val, p_val, ci_diff[1], ci_diff[2] ),
+    Manual = c(t_manual, "NA", "NA", "NA", "NA")
+)
+print(t_summary)
 
 ```
 
 **Question 8:** Every statistical test has assumptions. Name two assumptions of the *t*-test and say, in one sentence each, whether you think the *Abronia* data meet them.
 
 **Answer:**
+An assumption the test has it the data will follow the normal bell-shaped distrubution you typically see. We see that this is met as the face diameter is a continuous measurement that follows the usually bell curve format. 
+Another assumption the test has is thet each plant is measured independent of the others. This assumption is not met as plants were collected from 12 distinct group sites so plants from the same site where exposed to many of the same circumstances meaning they are not completely independent. 
 
 ## 10. Face diameter against tube length
 
@@ -367,19 +402,23 @@ Plot `tube_length_mm` (y) against `face_diam_mm` (x), coloured by `self_inc`, wi
 
 ```{r face-vs-tube, echo=FALSE, fig.cap="Write your caption here."}
 
-ggplot(mydata = floral_data, aes(x=face_diam_mm, y=tube_length_mm), group_by(self_inc)) + 
-    geom_point(size =2) + 
+ggplot(data=floral_data, aes(x=face_diam_mm, y=tube_length_mm, colour=self_inc)) + 
+    geom_point(size=0.6) + 
     labs(
-        x = "..."
-        y = "..."
-        title = "..."
-    )
+        x = "Face Diameter (mm)", 
+        y = "Tube Length (mm)", 
+        colour="Mating System?", # Edit this and other labels to be more specific
+        title = "Tube Length vs. Face Diameter"
+    ) + 
+    theme_classic()
 
 ```
 
 **Question 9:** Using everything above — the site plot in Section 5, the trait means, the *t*-test and this figure — what do the data say about the two hypotheses in the instructions? Answer in a short paragraph.
 
 **Answer:**
+The data supports the geographic distribution hypothesis that the SC populations are located farther north near the species range limit, where low mate density and fewer pollinators make self-fertilization beneficial. 
+The floral trait reduction hypothesis is also supported. Once SC evolves, plants invest less in attracting pollinators. SC plants have much smaller flower face diameters and shorter tube lengths than SI plants creating two completely seperate clusters.
 
 # DO THIS LAST {-}
 

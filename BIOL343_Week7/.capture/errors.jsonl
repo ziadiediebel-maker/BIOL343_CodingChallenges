@@ -1,0 +1,30 @@
+{"chunk":null,"ts":"2026-10-29T15:50:11Z","pid":23654,"engine":"r","severity":"warning","render":false,"warning":"## Warning: cannot open file 'Data/AbronialFloralData.csv': No such file or directory"}
+{"chunk":null,"ts":"2026-10-29T15:50:11Z","pid":23654,"engine":"r","severity":"error","render":false,"text":"## Error: cannot open the connection"}
+{"chunk":null,"ts":"2026-10-29T15:50:32Z","pid":23654,"engine":"r","severity":"warning","render":false,"warning":"## Warning: cannot open file 'Data/ AbroniaFloralData.csv': No such file or directory"}
+{"chunk":null,"ts":"2026-10-29T15:50:32Z","pid":23654,"engine":"r","severity":"error","render":false,"text":"## Error: cannot open the connection"}
+{"chunk":null,"ts":"2026-10-29T15:52:43Z","pid":23654,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"string\""}
+{"chunk":null,"ts":"2026-10-29T16:11:56Z","pid":23654,"engine":"r","severity":"error","render":false,"text":"## Error: object 'face_diam_mm' not found"}
+{"chunk":null,"ts":"2026-10-29T16:19:19Z","pid":23654,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"ggplot\""}
+{"chunk":null,"ts":"2026-10-29T16:20:39Z","pid":23654,"engine":"r","severity":"error","render":false,"text":"## Error: object 'face_diam_mm' not found"}
+{"chunk":null,"ts":"2026-10-29T16:22:01Z","pid":23654,"engine":"r","severity":"error","render":false,"text":"## Error: object 'face_diam_mm' not found"}
+{"chunk":null,"ts":"2026-10-29T16:22:29Z","pid":23654,"engine":"r","severity":"error","render":false,"text":"## Error: object 'face_diam_mm' not found"}
+{"chunk":null,"ts":"2026-10-30T00:38:47Z","pid":23654,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T15:06:04Z","pid":23654,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"predic\""}
+{"chunk":null,"ts":"2026-10-30T15:06:18Z","pid":23654,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:46:34Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:47:36Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:47:41Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"name_to\""}
+{"chunk":null,"ts":"2026-10-30T18:51:16Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:51:23Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:57:40Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:57:41Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:57:47Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:57:51Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:57:53Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:58:32Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:58:33Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:59:26Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:59:27Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:59:35Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-10-30T18:59:41Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: <ggplot2::labels> object is invalid:\n- every label must be named."}
+{"chunk":null,"ts":"2026-10-30T19:02:22Z","pid":72987,"engine":"r","severity":"error","render":false,"text":"## Error: \u001b[1m\u001b[22mCannot add \u001b[34m<ggproto>\u001b[39m objects together.\n\u001b[36mℹ\u001b[39m Did you forget to add this object to a \u001b[34m<ggplot>\u001b[39m object?"}

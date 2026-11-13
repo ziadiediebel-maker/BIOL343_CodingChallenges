@@ -1,0 +1,10 @@
+{"chunk":null,"ts":"2026-11-05T18:47:59Z","pid":45107,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"readcsv\""}
+{"chunk":null,"ts":"2026-11-05T18:57:28Z","pid":45107,"engine":"r","severity":"error","render":false,"text":"## Error: object 'lythrum_ce' not found"}
+{"chunk":null,"ts":"2026-11-05T20:34:14Z","pid":45107,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-11-05T20:34:22Z","pid":45107,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-11-05T22:12:31Z","pid":45107,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-11-05T22:12:38Z","pid":45107,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-11-06T19:37:44Z","pid":81049,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
+{"chunk":null,"ts":"2026-11-06T19:38:08Z","pid":81049,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected ')'"}
+{"chunk":null,"ts":"2026-11-06T19:38:11Z","pid":81049,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected ')'"}
+{"chunk":null,"ts":"2026-11-06T19:47:50Z","pid":81049,"engine":"r","severity":"error","render":false,"text":"## Error: Syntax error: unexpected symbol"}
